@@ -8,6 +8,7 @@ import { GenericCardComponent } from './components/generic-card/generic-card.com
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatIconModule} from '@angular/material/icon';
 import {MatInputModule} from '@angular/material/input';
+import { HeaderModule } from './components/header/header.module';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import {MatInputModule} from '@angular/material/input';
     MatFormFieldModule,
     MatIconModule,
     MatInputModule,
+    HeaderModule
   ],
   providers: [],
   bootstrap: [AppComponent]
