@@ -10,10 +10,10 @@ import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDialogModule } from '@angular/material/dialog';
-import {MatSelectModule} from '@angular/material/select';
-import {MatAutocompleteModule} from '@angular/material/autocomplete';
-import {MatSnackBarModule} from '@angular/material/snack-bar';
-import {MatDividerModule} from '@angular/material/divider';
+import { MatSelectModule } from '@angular/material/select';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatDividerModule } from '@angular/material/divider';
 
 const modules = [
   MatSidenavModule,
@@ -29,11 +29,11 @@ const modules = [
   MatSelectModule,
   MatAutocompleteModule,
   MatSnackBarModule,
-  MatDividerModule
+  MatDividerModule,
 ];
 
 @NgModule({
-  imports: [...modules],
-  exports: [...modules],
+  imports: modules,
+  exports: modules,
 })
 export class MaterialModule {}
