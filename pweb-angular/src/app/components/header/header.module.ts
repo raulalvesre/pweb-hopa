@@ -6,6 +6,7 @@ import { LogoModule } from 'src/app/shared/logo/logo.module';
 import { SearchBarModule } from 'src/app/shared/search-bar/search-bar.module';
 
 
+
 @NgModule({
   declarations: [HeaderComponent],
   imports: [
