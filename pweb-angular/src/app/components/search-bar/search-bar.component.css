@@ -1,5 +1,5 @@
 .form-field {
-  width: 400px;
+  width: 600px;
   background-color: white;
   border: solid 1px lightgray;
   border-radius: 6px;
@@ -8,7 +8,7 @@
 .form-field .btn-search{
   background-color: white;
   border: none;
-  width: 40px;
-  height: 40px;
-  color: chocolate;
+  width: 30px;
+  height: 30px;
+  color: rgb(224, 85, 43);
 }

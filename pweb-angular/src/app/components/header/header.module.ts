@@ -1,7 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HeaderComponent } from './header.component';
+
 import { SearchBarModule } from '../search-bar/search-bar.module';
+import { LogoModule } from '../logo/logo.module';
+import { LoginIconModule } from '../login-icon/login-icon.module';
+
 
 
 
@@ -9,7 +13,9 @@ import { SearchBarModule } from '../search-bar/search-bar.module';
   declarations: [HeaderComponent],
   imports: [
     CommonModule,
-    SearchBarModule
+    SearchBarModule,
+    LoginIconModule,
+    LogoModule
   ],
   exports:[HeaderComponent]
 })
