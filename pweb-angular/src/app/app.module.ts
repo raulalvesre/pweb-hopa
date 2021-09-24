@@ -3,27 +3,18 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { MenuNavBarComponent } from './shared/menu-nav-bar/menu-nav-bar.component';
-import { GenericCardComponent } from './components/generic-card/generic-card.component';
-import {MatFormFieldModule} from '@angular/material/form-field';
-import {MatIconModule} from '@angular/material/icon';
-import {MatInputModule} from '@angular/material/input';
-import { HeaderModule } from './components/header/header.module';
-
+import { LoginComponent } from './pages/login/login.component';
+import { MaterialModule } from './shared/material/material.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    MenuNavBarComponent,
-    GenericCardComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    MatFormFieldModule,
-    MatIconModule,
-    MatInputModule,
-    HeaderModule
+    MaterialModule
   ],
   providers: [],
   bootstrap: [AppComponent]
