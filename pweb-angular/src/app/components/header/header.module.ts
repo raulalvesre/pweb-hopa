@@ -1,9 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HeaderComponent } from './header.component';
-import { LoginIconModule } from 'src/app/shared/login-icon/login-icon.module';
-import { LogoModule } from 'src/app/shared/logo/logo.module';
-import { SearchBarModule } from 'src/app/shared/components/search-bar/search-bar.module';
+import { SharedModule } from 'src/app/shared/shared.module';
+
 
 
 
@@ -11,9 +10,7 @@ import { SearchBarModule } from 'src/app/shared/components/search-bar/search-bar
   declarations: [HeaderComponent],
   imports: [
     CommonModule,
-    SearchBarModule,
-    LoginIconModule,
-    LogoModule
+   SharedModule
   ],
   exports:[HeaderComponent]
 })
