@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { VitrinePageComponent } from './vitrine-page.component';
 import { HeaderModule } from 'src/app/components/header/header.module';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { GenericCardModule } from 'src/app/components/generic-card/generic-card.module';
 
 
 
@@ -13,7 +14,8 @@ import { SharedModule } from 'src/app/shared/shared.module';
   imports: [
     CommonModule,
     HeaderModule,
-    SharedModule
+    SharedModule,
+    GenericCardModule
   ],
   exports:[VitrinePageComponent]
 })

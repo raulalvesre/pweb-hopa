@@ -1,0 +1,16 @@
+.cart{
+  border: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: right;
+  background-color: white;
+  margin-right: 15px;
+  cursor: pointer;
+}
+
+.btn-cart{
+  width: 98vw;
+  display: flex;
+  justify-content: right;
+  margin-right: 50px;
+}

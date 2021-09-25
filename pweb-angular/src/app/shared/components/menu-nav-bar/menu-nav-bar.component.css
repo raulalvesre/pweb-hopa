@@ -5,13 +5,7 @@
   border: 1px solid #c0c0c0;
   justify-content: space-evenly;
 }
-.nav{
-  flex: 9;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-}
+
 .menu{
   list-style: none;
   display: flex;
@@ -36,7 +30,7 @@
   padding:5px 10px;
   display:block;}
 
-.menu li a:hover{
+.menu li :hover{
 background:#333;
 color:#fff;
 -moz-box-shadow:0 3px 10px 0 #CCC;
@@ -46,7 +40,7 @@ text-shadow:0px 0px 5px #fff;
 
 .menu li ul{
   position:absolute;
-  top:35px;
+  top:30px;
   right:-31px;
   background-color:#fff;
   display:none;
@@ -60,13 +54,6 @@ text-shadow:0px 0px 5px #fff;
   border:1px solid #c0c0c0;
   display:block;
   width:150px;
-}
-
-.cart{
-  border: none;
-  background-color: white;
-  margin-right: 10px;
-  cursor: pointer;
 }
 
 .separator{
