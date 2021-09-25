@@ -1,0 +1,25 @@
+<style>
+ .example-card {
+   display: flex;
+   flex-direction: row;
+   flex-wrap: wrap;
+   justify-content: flex-start;
+ }
+ /* Column Gap */
+ .example-card > * {
+   box-sizing: border-box;
+ }
+ .example-card > *:not(:last-child) {
+   margin-right: 32px;
+ }
+ /* Item sizing */
+ .example-card {
+   flex: 0 1 calc(50% - 32px);
+ }
+</style>
+<div class="example-card">
+  <ng-container *ngFor="let _ of [1,2,3,4,5,6]">
+    <app-card class="cardListItem"></app-card>
+  </ng-container>
+</div>
+
