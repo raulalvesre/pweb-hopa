@@ -8,6 +8,7 @@ import { LoginComponent } from './pages/login/login.component';
 
 import { SharedModule } from './shared/shared.module';
 import { MaterialModule } from './shared/material/material.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { MaterialModule } from './shared/material/material.module';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     SharedModule,
     MaterialModule,
     FlexLayoutModule,
