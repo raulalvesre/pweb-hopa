@@ -22,7 +22,8 @@ import { VitrinePageModule } from './pages/vitrine-page/vitrine-page.module';
     MaterialModule,
     AppRoutingModule,
     HeaderModule,
-    VitrinePageModule
+    VitrinePageModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
