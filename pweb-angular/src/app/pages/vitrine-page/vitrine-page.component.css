@@ -2,17 +2,4 @@
   margin-top: 50px;
 }
 
-.cart{
-  position: absolute;
-  border: none;
-  background-color: white;
-  margin-right: 15px;
-  cursor: pointer;
-}
 
-.btn-cart{
-  width: 98vw;
-  display: flex;
-  justify-content: right;
-  margin-right: 50px;
-}
