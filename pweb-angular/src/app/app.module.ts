@@ -4,17 +4,18 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { VitrinePageComponent } from './pages/vitrine-page/vitrine-page.component';
-import { SharedModule } from './shared/shared.module';
 import { LoginComponent } from './pages/login/login.component';
+import { HeaderModule } from './components/header/header.module';
+
+import { SharedModule } from './shared/shared.module';
 import { MaterialModule } from './shared/material/material.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { VitrinePageModule } from './pages/vitrine-page/vitrine-page.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    VitrinePageComponent,
   ],
   imports: [
     BrowserModule,
@@ -22,8 +23,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     MaterialModule,
     FlexLayoutModule,
     AppRoutingModule,
-    BrowserAnimationsModule,
-
+    HeaderModule,
+    VitrinePageModule
   ],
   providers: [],
   bootstrap: [AppComponent]
