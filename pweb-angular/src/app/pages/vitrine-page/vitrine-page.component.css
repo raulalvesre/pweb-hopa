@@ -1,8 +1,10 @@
+.vitrine{
+  margin-top: 50px;
+}
+
 .cart{
+  position: absolute;
   border: none;
-  display: flex;
-  flex-direction: row;
-  justify-content: right;
   background-color: white;
   margin-right: 15px;
   cursor: pointer;

@@ -10,6 +10,7 @@ import { SharedModule } from './shared/shared.module';
 import { MaterialModule } from './shared/material/material.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { VitrinePageModule } from './pages/vitrine-page/vitrine-page.module';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { VitrinePageModule } from './pages/vitrine-page/vitrine-page.module';
     AppRoutingModule,
     HeaderModule,
     VitrinePageModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    FlexLayoutModule
   ],
   providers: [],
   bootstrap: [AppComponent]

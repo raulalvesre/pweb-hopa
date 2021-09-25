@@ -1,13 +1,15 @@
 <app-header></app-header>
 <app-menu-nav-bar></app-menu-nav-bar>
 <div class="vitrine">
-  <div class="btn-cart">
+  <!-- <div class="btn-cart">
     <button class="cart">
       <i class="material-icons">shopping_cart</i>
     </button>
-  </div>
+  </div> -->
 
-  <div class="products-cards">
-    <app-generic-card></app-generic-card>
+  <div fxLayout="row wrap" fxLayoutGap="25px" fxLayoutAlign="center" fxLayoutMargin="10px">
+    <ng-container *ngFor="let _ of [1,2,3,4,5,6]">
+      <app-generic-card fxFlex="0 1 calc(33.3% - 150px)"></app-generic-card>
+    </ng-container>
   </div>
 </div>
