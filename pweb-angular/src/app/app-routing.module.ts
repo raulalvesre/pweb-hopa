@@ -11,10 +11,6 @@ const routes: Routes = [
     pathMatch: 'full',
     children: [{ path: '', component: LoginComponent }],
     //canActivate: [AuthGuard],
-  },
-  {
-    path: '',
-    component: VitrinePageComponent,
   }
 ];
 

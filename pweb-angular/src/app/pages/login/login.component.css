@@ -1,0 +1,22 @@
+#container {
+  height: 70%;
+  min-height: 70%;
+}
+
+#login {
+  margin: 0px 10px 0px 10px;
+}
+
+#registration {
+  margin: 0px 10px 0px 10px;
+}
+
+#verticalDivider {
+  height:300px;
+  margin-left:25px;
+  margin-right:25px;
+}
+
+#horizontalDivider {
+  margin: 25px 0px 25px 0px;
+}

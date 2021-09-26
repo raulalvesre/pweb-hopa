@@ -1,49 +1,37 @@
-<div>
-  <mat-expansion-panel hideToggle>
-    <mat-expansion-panel-header>
-      <mat-panel-title>
-        FAZER CADASTRO
-      </mat-panel-title>
-      <mat-panel-description>
-        Ainda não é cadastrado no site?
-      </mat-panel-description>
-    </mat-expansion-panel-header>
-    <div id="registrationForm" fxLayout="column">
+<div fxFill fxLayout="row wrap" fxLayoutAlign="center center" id="container" style="height: 70% !important;">
+  <div id="login" fxFlex.lt-md fxFlex.gt-sm="35" fxFlexOffset.sm="10">
+    <p class="mat-h1">JÁ TENHO CADASTRO</p>
+    <div id="loginForm" fxLayout="column" fxFill>
       <mat-form-field appearance="outline">
         <input matInput placeholder="EMAIL" />
       </mat-form-field>
       <mat-form-field appearance="outline">
         <input matInput placeholder="SENHA" />
       </mat-form-field>
-      <mat-form-field appearance="outline">
-        <input matInput placeholder="CONFIRME SUA SENHA" />
-      </mat-form-field>
-      <mat-form-field appearance="outline">
-        <input matInput placeholder="CPF ou CNPJ" />
-      </mat-form-field>
-      <mat-form-field appearance="outline">
-        <input matInput placeholder="CEP" />
-      </mat-form-field>
-      <button mat-flat-button color="primary" fxFill>CADASTRAR</button>
+      <div fxLayoutAlign="end none">
+        <p>Esqueci minha senha</p>
+      </div>
+      <div fxFlexLayout.gt-sm="row" fxLayoutAlign.gt-sm="end">
+        <button mat-flat-button color="primary" fxHide.lt-md>ENTRAR</button>
+        <button mat-flat-button color="primary" fxHide.gt-sm fxFill>
+          ENTRAR
+        </button>
+      </div>
     </div>
-  </mat-expansion-panel>
-  <mat-expansion-panel hideToggle>
-    <mat-expansion-panel-header>
-      <mat-panel-title>
-        LOGIN
-      </mat-panel-title>
-      <mat-panel-description>
-        Entre com seus dados de login e senha.
-      </mat-panel-description>
-    </mat-expansion-panel-header>
-    <div id="registrationForm" fxLayout="column">
-      <mat-form-field appearance="outline">
-        <input matInput placeholder="EMAIL" />
-      </mat-form-field>
-      <mat-form-field appearance="outline">
-        <input matInput placeholder="SENHA" />
-      </mat-form-field>
-      <button mat-flat-button color="primary">ENTRAR</button>
-    </div>
-  </mat-expansion-panel>
+  </div>
+  <div fxFlexOffset.sm="10"></div>
+  <mat-divider vertical id="verticalDivider" fxHide.lt-md></mat-divider>
+  <mat-divider id="horizontalDivider" fxHide.gt-sm fxFlex="85"></mat-divider>
+  <div
+    id="registration"
+    fxFlex.gt-sm="22"
+    fxFlex.lt-md
+    fxFlex.lg="20"
+    fxFlex.xl="15"
+    fxFlexOffset.sm="10"
+  >
+    <p class="mat-h1">AINDA NÃO TENHO CADASTRO</p>
+    <button mat-flat-button color="primary" fxFill>CLIQUE AQUI</button>
+  </div>
+  <div fxFlexOffset.sm="10"></div>
 </div>
