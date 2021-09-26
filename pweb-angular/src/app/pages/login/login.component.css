@@ -1,6 +1,7 @@
 #container {
-  height: 70%;
-  min-height: 70%;
+  margin-top: 8vh;
+  min-height: 50vh !important;
+  height: 50vh !important;
 }
 
 #login {
@@ -18,5 +19,6 @@
 }
 
 #horizontalDivider {
-  margin: 25px 0px 25px 0px;
+  margin: 0px 0px 25px 0px;
 }
+

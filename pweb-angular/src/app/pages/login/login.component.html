@@ -9,7 +9,7 @@
         <input matInput placeholder="SENHA" />
       </mat-form-field>
       <div fxLayoutAlign="end none">
-        <p>Esqueci minha senha</p>
+        <a href="javascript:void(0);" (click)="openForgotPasswordDialog()">Esqueci minha senha</a>
       </div>
       <div fxFlexLayout.gt-sm="row" fxLayoutAlign.gt-sm="end">
         <button mat-flat-button color="primary" fxHide.lt-md>ENTRAR</button>
@@ -31,7 +31,7 @@
     fxFlexOffset.sm="10"
   >
     <p class="mat-h1">AINDA NÃO TENHO CADASTRO</p>
-    <button mat-flat-button color="primary" fxFill>CLIQUE AQUI</button>
+    <button mat-flat-button color="primary" fxFill routerLink="/cadastro">CLIQUE AQUI</button>
   </div>
   <div fxFlexOffset.sm="10"></div>
 </div>
