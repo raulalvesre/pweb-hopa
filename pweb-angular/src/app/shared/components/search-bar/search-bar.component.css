@@ -1,15 +1,19 @@
 .form-field {
-  width: 600px;
   background-color: white;
-  border: solid 1px lightgray;
   border-radius: 6px;
+  width: 700px;
 }
 
 .form-field .btn-search{
-  background-color: white;
   border: none;
-  width: 30px;
-  height: 30px;
-  color: rgb(224, 85, 43);
+  color: #f44336;
   cursor: pointer;
+}
+
+:host ::ng-deep .mat-form-field-appearance-outline .mat-form-field-wrapper{
+  margin: 0;
+}
+
+:host::ng-deep .mat-form-field-wrapper{
+  padding: 0;
 }
