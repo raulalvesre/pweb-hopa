@@ -13,6 +13,7 @@ import { RegistrationComponent } from './pages/registration/registration.compone
 import { ForgotPasswordDialogComponent } from './pages/login/forgot-password-dialog/forgot-password-dialog.component';
 import { VitrinePageModule } from './pages/vitrine-page/vitrine-page.module';
 import { SharedModule } from './shared/shared.module';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { SharedModule } from './shared/shared.module';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    ReactiveFormsModule,
     SharedModule,
     MaterialModule,
     FlexLayoutModule,

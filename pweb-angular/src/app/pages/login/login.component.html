@@ -1,23 +1,52 @@
-<div fxFill fxLayout="row wrap" fxLayoutAlign="center center" id="container" style="height: 70% !important;">
+<div
+  fxFill
+  fxLayout="row wrap"
+  fxLayoutAlign="center center"
+  id="container"
+  style="height: 70% !important"
+>
   <div id="login" fxFlex.lt-md fxFlex.gt-sm="35" fxFlexOffset.sm="10">
     <p class="mat-h1">JÁ TENHO CADASTRO</p>
-    <div id="loginForm" fxLayout="column" fxFill>
+    <form id="loginForm" [formGroup]="form" fxLayout="column" fxFill>
       <mat-form-field appearance="outline">
-        <input matInput placeholder="EMAIL" />
+        <mat-label>EMAIL</mat-label>
+        <input matInput formControlName="email" />
       </mat-form-field>
+      <app-form-error-msg [control]="getFormControl('email')" label="Email">
+      </app-form-error-msg>
       <mat-form-field appearance="outline">
-        <input matInput placeholder="SENHA" />
+        <mat-label>SENHA</mat-label>
+        <input
+          matInput
+          formControlName="password"
+          type="password"
+        />
       </mat-form-field>
+      <app-form-error-msg [control]="getFormControl('password')" label="Senha">
+      </app-form-error-msg>
       <div fxLayoutAlign="end none">
-        <a href="javascript:void(0);" (click)="openForgotPasswordDialog()">Esqueci minha senha</a>
+        <a id="forgotPasswordAnchor" href="javascript:void(0);" (click)="openForgotPasswordDialog()"
+          >Esqueci minha senha</a
+        >
       </div>
       <div fxFlexLayout.gt-sm="row" fxLayoutAlign.gt-sm="end">
-        <button mat-flat-button color="primary" fxHide.lt-md>ENTRAR</button>
-        <button mat-flat-button color="primary" fxHide.gt-sm fxFill>
+        <button
+          mat-raised-button
+          fxHide.lt-md
+          (click)="onSubmit()"
+        >
+          ENTRAR
+        </button>
+        <button
+          mat-raised-button
+          fxHide.gt-sm
+          fxFill
+          (click)="onSubmit()"
+        >
           ENTRAR
         </button>
       </div>
-    </div>
+    </form>
   </div>
   <div fxFlexOffset.sm="10"></div>
   <mat-divider vertical id="verticalDivider" fxHide.lt-md></mat-divider>
@@ -31,7 +60,9 @@
     fxFlexOffset.sm="10"
   >
     <p class="mat-h1">AINDA NÃO TENHO CADASTRO</p>
-    <button mat-flat-button color="primary" fxFill routerLink="/cadastro">CLIQUE AQUI</button>
+    <button mat-raised-button fxFill routerLink="/cadastro">
+      CLIQUE AQUI
+    </button>
   </div>
   <div fxFlexOffset.sm="10"></div>
 </div>

@@ -10,6 +10,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { LayoutComponent } from './components/layout/layout.component';
 import { RouterModule } from '@angular/router';
 import { HeaderComponent } from './components/header/header.component';
+import { FormErrorMsgComponent } from './components/form-error-msg/form-error-msg.component';
 
 const components = [
   LayoutComponent,
@@ -18,6 +19,7 @@ const components = [
   LoginIconComponent,
   MenuNavBarComponent,
   SearchBarComponent,
+  FormErrorMsgComponent
 ];
 
 @NgModule({
