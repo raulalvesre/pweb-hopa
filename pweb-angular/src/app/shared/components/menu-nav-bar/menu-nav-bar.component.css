@@ -31,8 +31,8 @@
   padding:5px 10px;
   display:block;}
 
-.menu li a:hover{
-  background:#333;
+.menu li:hover{
+  background:rgb(172, 170, 170);
   color:#fff;
   -moz-box-shadow:0 3px 10px 0 #CCC;
   -webkit-box-shadow:0 3px 10px 0 #ccc;
