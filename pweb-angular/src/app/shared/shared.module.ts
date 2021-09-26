@@ -26,7 +26,7 @@ const components = [
     RouterModule,
     MaterialModule,
     ReactiveFormsModule,
-    FlexLayoutModule
+    FlexLayoutModule,
   ],
   declarations: components,
   exports: components
