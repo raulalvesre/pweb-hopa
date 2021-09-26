@@ -5,13 +5,7 @@
   border: 1px solid #c0c0c0;
   justify-content: space-evenly;
 }
-.nav{
-  flex: 9;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-}
+
 .menu{
   list-style: none;
   display: flex;
@@ -23,7 +17,8 @@
 
 .menu li{
   position:relative;
-  width: 120px;
+  background-color:#fff;
+  width: 250px;
   border-right:1px solid #c0c0c0;
   display: flex;
   justify-content: center;
@@ -36,8 +31,8 @@
   padding:5px 10px;
   display:block;}
 
-.menu li a:hover{
-  background:#333;
+.menu li:hover{
+  background:rgb(172, 170, 170);
   color:#fff;
   -moz-box-shadow:0 3px 10px 0 #CCC;
   -webkit-box-shadow:0 3px 10px 0 #ccc;
@@ -46,9 +41,8 @@
 
 .menu li ul{
   position:absolute;
-  top:35px;
-  right:-31px;
-  background-color:#fff;
+  top:30px;
+  right:-2px;
   display:none;
 }
 
@@ -59,14 +53,9 @@
 .menu li ul li{
   border:1px solid #c0c0c0;
   display:block;
-  width:150px;
-}
-
-.cart{
-  border: none;
-  background-color: white;
-  margin-right: 10px;
-  cursor: pointer;
+  width:250px;
+  justify-content: center;
+  z-index: 1;
 }
 
 .separator{
