@@ -10,8 +10,7 @@ export class FormValidations {
           'invalid': `${fieldName} inválido`,
           'email': 'Email inválido',
           'passwordWithAtLeastOneNumber': 'A senha precisa ter pelo menos um número',
-          'telephoneNumber': 'Telefone inválido',
-          'pattern': 'Campo inválido',
+          'pattern': `${fieldName} inválido`,
       };
 
       return config[validatorName];

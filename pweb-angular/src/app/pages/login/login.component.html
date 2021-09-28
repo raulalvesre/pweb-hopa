@@ -11,38 +11,35 @@
       <mat-form-field appearance="outline">
         <mat-label>EMAIL</mat-label>
         <input matInput formControlName="email" />
+        <mat-error>
+          <app-form-error-msg [control]="getFormControl('email')" label="Email">
+          </app-form-error-msg>
+        </mat-error>
       </mat-form-field>
-      <app-form-error-msg [control]="getFormControl('email')" label="Email">
-      </app-form-error-msg>
       <mat-form-field appearance="outline">
         <mat-label>SENHA</mat-label>
-        <input
-          matInput
-          formControlName="password"
-          type="password"
-        />
+        <input matInput formControlName="password" type="password" />
+        <mat-error>
+          <app-form-error-msg
+            [control]="getFormControl('password')"
+            label="Senha"
+          >
+          </app-form-error-msg>
+        </mat-error>
       </mat-form-field>
-      <app-form-error-msg [control]="getFormControl('password')" label="Senha">
-      </app-form-error-msg>
       <div fxLayoutAlign="end none">
-        <a id="forgotPasswordAnchor" href="javascript:void(0);" (click)="openForgotPasswordDialog()"
+        <a
+          id="forgotPasswordAnchor"
+          href="javascript:void(0);"
+          (click)="openForgotPasswordDialog()"
           >Esqueci minha senha</a
         >
       </div>
       <div fxFlexLayout.gt-sm="row" fxLayoutAlign.gt-sm="end">
-        <button
-          mat-raised-button
-          fxHide.lt-md
-          (click)="onSubmit()"
-        >
+        <button mat-raised-button fxHide.lt-md (click)="onSubmit()">
           ENTRAR
         </button>
-        <button
-          mat-raised-button
-          fxHide.gt-sm
-          fxFill
-          (click)="onSubmit()"
-        >
+        <button mat-raised-button fxHide.gt-sm fxFill (click)="onSubmit()">
           ENTRAR
         </button>
       </div>
@@ -50,7 +47,7 @@
   </div>
   <div fxFlexOffset.sm="10"></div>
   <mat-divider vertical id="verticalDivider" fxHide.lt-md></mat-divider>
-  <mat-divider id="horizontalDivider" fxHide.gt-sm fxFlex="85"></mat-divider>
+  <mat-divider id="horizontalDivider" fxHide.gt-sm fxFlex="78"></mat-divider>
   <div
     id="registration"
     fxFlex.gt-sm="22"
@@ -60,9 +57,7 @@
     fxFlexOffset.sm="10"
   >
     <p class="mat-h1">AINDA NÃO TENHO CADASTRO</p>
-    <button mat-raised-button fxFill routerLink="/cadastro">
-      CLIQUE AQUI
-    </button>
+    <button mat-raised-button fxFill routerLink="/cadastro">CLIQUE AQUI</button>
   </div>
   <div fxFlexOffset.sm="10"></div>
 </div>
