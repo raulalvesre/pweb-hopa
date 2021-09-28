@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 interface Transaction {
   item: string;
+  quantidade: number
   cost: number;
 }
 
@@ -12,14 +13,14 @@ interface Transaction {
 })
 
 export class CartPageComponent{
-  displayedColumns: string[] = ['item', 'cost'];
+  displayedColumns: string[] = ['item', 'quantidade', 'cost'];
   transactions: Transaction[] = [
-    {item: 'Beach ball', cost: 4},
-    {item: 'Towel', cost: 5},
-    {item: 'Frisbee', cost: 2},
-    {item: 'Sunscreen', cost: 4},
-    {item: 'Cooler', cost: 25},
-    {item: 'Swim suit', cost: 15},
+    {item: 'Beach ball', quantidade: 1, cost: 4},
+    {item: 'Towel', quantidade: 3, cost: 5},
+    {item: 'Frisbee',quantidade: 2, cost: 2},
+    {item: 'Sunscreen',quantidade: 4, cost: 4},
+    {item: 'Cooler',quantidade: 1, cost: 25},
+    {item: 'Swim suit',quantidade: 1, cost: 15},
   ];
   constructor() { }
 
@@ -27,6 +28,9 @@ export class CartPageComponent{
   }
   getTotalCost() {
     return this.transactions.map(t => t.cost).reduce((acc, value) => acc + value, 0);
+  }
+  getTotalQuantity() {
+    return this.transactions.map(t => t.quantidade).reduce((acc, value) => acc + value, 0);
   }
 
 }
