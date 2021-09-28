@@ -29,6 +29,10 @@
   margin-right: 60px;
 }
 
+.btn-cart a{
+  color: #f44336;
+}
+
 .user-icon{
   display: flex;
   flex-direction: row;
