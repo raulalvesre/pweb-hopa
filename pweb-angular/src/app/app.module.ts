@@ -14,7 +14,8 @@ import { ForgotPasswordDialogComponent } from './pages/login/forgot-password-dia
 import { VitrinePageModule } from './pages/vitrine-page/vitrine-page.module';
 import { SharedModule } from './shared/shared.module';
 import { ReactiveFormsModule } from '@angular/forms';
-import { NgxMaskModule, IConfig } from 'ngx-mask'
+import { NgxMaskModule, IConfig } from 'ngx-mask';
+import { ProdutoDetalhePageComponent } from './pages/produto-detalhe-page/produto-detalhe-page.component'
 
 const maskConfig: Partial<IConfig> = {
   validation: false,
@@ -25,6 +26,7 @@ const maskConfig: Partial<IConfig> = {
     LoginComponent,
     RegistrationComponent,
     ForgotPasswordDialogComponent,
+    ProdutoDetalhePageComponent,
   ],
   imports: [
     BrowserModule,
