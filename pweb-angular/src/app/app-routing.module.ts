@@ -7,6 +7,13 @@ import { LayoutComponent } from './shared/components/layout/layout.component';
 
 const routes: Routes = [
   {
+    path: '',
+    component: LayoutComponent,
+    pathMatch: 'full',
+    children: [{ path: '', component: VitrinePageComponent }],
+    //canActivate: [AuthGuard],
+  },
+  {
     path: 'login',
     component: LayoutComponent,
     pathMatch: 'full',

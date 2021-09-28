@@ -12,3 +12,14 @@ img{
   max-width: 200px;
   max-height: 323px;
 }
+
+a:hover{
+  cursor: pointer;
+}
+
+.add-cart{
+  border: none;
+  background-color: white;
+  margin-right: 45px;
+  cursor: pointer;
+}
