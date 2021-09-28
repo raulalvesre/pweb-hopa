@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { CartPageComponent } from './pages/cart-page/cart-page.component';
 import { LoginComponent } from './pages/login/login.component';
 import { RegistrationComponent } from './pages/registration/registration.component';
 import { VitrinePageComponent } from './pages/vitrine-page/vitrine-page.component';
@@ -25,6 +26,13 @@ const routes: Routes = [
     component: LayoutComponent,
     pathMatch: 'full',
     children: [{ path: '', component: RegistrationComponent }],
+    //canActivate: [AuthGuard],
+  },
+  {
+    path: 'cart',
+    component: LayoutComponent,
+    pathMatch: 'full',
+    children: [{ path: '', component: CartPageComponent }],
     //canActivate: [AuthGuard],
   }
 ];

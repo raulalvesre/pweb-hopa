@@ -14,6 +14,7 @@ import { ForgotPasswordDialogComponent } from './pages/login/forgot-password-dia
 import { VitrinePageModule } from './pages/vitrine-page/vitrine-page.module';
 import { SharedModule } from './shared/shared.module';
 import { ReactiveFormsModule } from '@angular/forms';
+import { CartPageComponent } from './pages/cart-page/cart-page.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     LoginComponent,
     RegistrationComponent,
     ForgotPasswordDialogComponent,
+    CartPageComponent,
   ],
   imports: [
     BrowserModule,
