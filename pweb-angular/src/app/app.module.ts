@@ -14,6 +14,7 @@ import { ForgotPasswordDialogComponent } from './pages/login/forgot-password-dia
 import { VitrinePageModule } from './pages/vitrine-page/vitrine-page.module';
 import { SharedModule } from './shared/shared.module';
 import { ReactiveFormsModule } from '@angular/forms';
+import { CartPageComponent } from './pages/cart-page/cart-page.component';
 import { NgxMaskModule, IConfig } from 'ngx-mask'
 
 const maskConfig: Partial<IConfig> = {
@@ -25,6 +26,7 @@ const maskConfig: Partial<IConfig> = {
     LoginComponent,
     RegistrationComponent,
     ForgotPasswordDialogComponent,
+    CartPageComponent,
   ],
   imports: [
     BrowserModule,

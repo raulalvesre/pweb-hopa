@@ -18,7 +18,7 @@
 .menu li{
   position:relative;
   background-color:#fff;
-  width: 250px;
+  width:20vw;
   border-right:1px solid #c0c0c0;
   display: flex;
   justify-content: center;
@@ -53,11 +53,7 @@
 .menu li ul li{
   border:1px solid #c0c0c0;
   display:block;
-  width:250px;
+  width:20vw;
   justify-content: center;
   z-index: 1;
-}
-
-.separator{
-  border-left:1px solid #c0c0c0;
 }
