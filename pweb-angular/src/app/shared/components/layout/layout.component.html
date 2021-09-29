@@ -1,4 +1,62 @@
-<app-header></app-header>
-<app-menu-nav-bar></app-menu-nav-bar>
-
-<router-outlet></router-outlet>
+<div>
+  <app-header-gt-sm fxHide.lt-md></app-header-gt-sm>
+  <app-header-lt-md (sidenav)="sidenav.toggle()" fxHide.gt-sm></app-header-lt-md>
+  <app-menu-nav-bar fxHide.lt-md></app-menu-nav-bar>
+  <mat-sidenav-container fxFlexFill fxHide.gt-sm>
+    <mat-sidenav #sidenav fxLayout="column">
+        <mat-expansion-panel hideToggle #destaquesPanel (opened)="panelAsButtonClick('destaques')" >
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Destaques
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+        </mat-expansion-panel>
+        <mat-expansion-panel hideToggle #promocoesPanel (opened)="panelAsButtonClick('promocoes')">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Promoções
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+        </mat-expansion-panel>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Feminino
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <a fxFill href="#" mat-button>Calças</a>
+          <a fxFill href="#" mat-button>Camisetas</a>
+          <a fxFill href="#" mat-button>Blusas</a>
+          <a fxFill href="#" mat-button>Bermudas</a>
+        </mat-expansion-panel>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Masculino
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <a fxFill href="#" mat-button>Calças</a>
+          <a fxFill href="#" mat-button>Camisetas</a>
+          <a fxFill href="#" mat-button>Blusas</a>
+          <a fxFill href="#" mat-button>Bermudas</a>
+        </mat-expansion-panel>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Infantil
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <a fxFill href="#" mat-button>Calças</a>
+          <a fxFill href="#" mat-button>Camisetas</a>
+          <a fxFill href="#" mat-button>Blusas</a>
+          <a fxFill href="#" mat-button>Bermudas</a>
+        </mat-expansion-panel>
+    </mat-sidenav>
+    <mat-sidenav-content style="height: 80vh">
+      <router-outlet></router-outlet>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+  <div fxHide.lt-md>
+    <router-outlet></router-outlet>
+  </div>
+</div>

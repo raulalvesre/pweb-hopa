@@ -1,8 +1,18 @@
-.header{
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 30px  0 30px;
-  background-color: darkgray;
-  height: 15vh;
+mat-sidenav-content {
+  background-color: white;
 }
+
+
+:host ::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline {
+  background-color: white;
+  border-radius: 5px;
+}
+/* input color class */
+:host ::ng-deep input.mat-input-element {
+  color: #484a4c;
+}
+
+:host ::ng-deep .mat-form-field .mat-icon {
+  color: #484a4c;
+}
+
