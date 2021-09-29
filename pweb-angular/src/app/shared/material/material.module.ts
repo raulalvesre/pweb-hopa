@@ -15,6 +15,8 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete'
 import { MatSnackBarModule } from '@angular/material/snack-bar'
 import { MatDividerModule } from '@angular/material/divider'
 import { MatExpansionModule } from '@angular/material/expansion'
+import {MatListModule} from '@angular/material/list';
+
 
 const modules = [
   MatSidenavModule,
@@ -31,7 +33,8 @@ const modules = [
   MatAutocompleteModule,
   MatSnackBarModule,
   MatDividerModule,
-  MatExpansionModule
+  MatExpansionModule,
+  MatListModule
 ]
 
 @NgModule({
