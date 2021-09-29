@@ -1,6 +1,6 @@
 <mat-toolbar color="primary">
   <div fxLayoutAlign="space-between center" fxFill>
-    <img src="../../../../assets/LOGO.png" alt="Logo da loja" id="logo" />
+    <img src="../../../../assets/LOGO.png" alt="Logo da loja" id="logo" routerLink=""/>
     <div id="search-bar" fxFlex="70">
       <mat-form-field appearance="outline" fxFlex="100">
         <input matInput placeholder="Buscar" type="text" />
@@ -14,7 +14,7 @@
         </button>
       </mat-form-field>
     </div>
-    <button mat-icon-button routerLink="/carrinho">
+    <button mat-icon-button routerLink="cart" >
       <mat-icon class="toolbar-icon">shopping_cart</mat-icon>
     </button>
     <div fxFlex="5">
