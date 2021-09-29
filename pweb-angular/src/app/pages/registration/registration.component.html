@@ -1,97 +1,175 @@
-<div id="registrationForm" fxLayout="row wrap" fxFill>
-  <mat-form-field
-    appearance="outline"
-    fxFlex.lt-sm="94"
-    fxFlex.lt-md="70"
-    fxFlex.lt-lg="50"
-    fxFlex.gt-md="40"
+<div id="container" fxLayout="row wrap">
+  <div
+    id="title"
+    fxFlex="100"
     fxFlexOffset.lt-sm="3"
     fxFlexOffset.lt-md="15"
     fxFlexOffset.lt-lg="25"
     fxFlexOffset.gt-md="30"
   >
-    <input matInput placeholder="NOME" />
-  </mat-form-field>
-  <mat-form-field
-    appearance="outline"
-    fxFlex.lt-sm="94"
-    fxFlex.lt-md="70"
-    fxFlex.lt-lg="50"
-    fxFlex.gt-md="40"
-    fxFlexOffset.lt-sm="3"
-    fxFlexOffset.lt-md="15"
-    fxFlexOffset.lt-lg="25"
-    fxFlexOffset.gt-md="30"
-  >
-    <input matInput placeholder="EMAIL" type="email" />
-  </mat-form-field>
-  <div fxLayout="row wrap" fxFlex="100">
+    <p class="mat-h1">CADASTRO</p>
+  </div>
+  <form id="registrationForm" [formGroup]="form" fxLayout="row wrap" fxFill>
     <mat-form-field
       appearance="outline"
       fxFlex.lt-sm="94"
-      fxFlex.lt-md="33"
-      fxFlex.lt-lg="23"
-      fxFlex.gt-md="19"
+      fxFlex.lt-md="70"
+      fxFlex.lt-lg="50"
+      fxFlex.gt-md="40"
       fxFlexOffset.lt-sm="3"
       fxFlexOffset.lt-md="15"
       fxFlexOffset.lt-lg="25"
       fxFlexOffset.gt-md="30"
     >
-      <input matInput placeholder="SENHA" type="password"/>
+      <mat-label>Nome</mat-label>
+      <input matInput formControlName="name" />
+      <mat-error>
+        <app-form-error-msg
+          [control]="getFormControl('name')"
+          label="Nome"
+        ></app-form-error-msg>
+      </mat-error>
     </mat-form-field>
     <mat-form-field
       appearance="outline"
       fxFlex.lt-sm="94"
-      fxFlex.lt-md="33"
-      fxFlex.lt-lg="23"
-      fxFlex.gt-md="19"
+      fxFlex.lt-md="70"
+      fxFlex.lt-lg="50"
+      fxFlex.gt-md="40"
       fxFlexOffset.lt-sm="3"
-      fxFlexOffset.gt-xs="4"
-      fxFlexOffset.gt-md="2"
+      fxFlexOffset.lt-md="15"
+      fxFlexOffset.lt-lg="25"
+      fxFlexOffset.gt-md="30"
     >
-      <input matInput placeholder="CONFIRMAR SENHA" type="password"/>
+      <mat-label>Email</mat-label>
+      <input matInput formControlName="email" />
+      <mat-error>
+        <app-form-error-msg
+          [control]="getFormControl('email')"
+          label="Email"
+        ></app-form-error-msg>
+      </mat-error>
     </mat-form-field>
-  </div>
-  <mat-form-field
-    appearance="outline"
-    fxFlex.lt-sm="94"
-    fxFlex.lt-md="70"
-    fxFlex.lt-lg="50"
-    fxFlex.gt-md="40"
-    fxFlexOffset.lt-sm="3"
-    fxFlexOffset.lt-md="15"
-    fxFlexOffset.lt-lg="25"
-    fxFlexOffset.gt-md="30"
-  >
-    <input matInput placeholder="CPF" />
-  </mat-form-field>
-  <mat-form-field
-    appearance="outline"
-    fxFlex.lt-sm="94"
-    fxFlex.lt-md="70"
-    fxFlex.lt-lg="50"
-    fxFlex.gt-md="40"
-    fxFlexOffset.lt-sm="3"
-    fxFlexOffset.lt-md="15"
-    fxFlexOffset.lt-lg="25"
-    fxFlexOffset.gt-md="30"
-  >
-    <input matInput placeholder="TELEFONE" />
-  </mat-form-field>
-  <div fxFlexOffset.gt-xs="10"></div>
-  <div fxHide.gt-xs fxFlex.lt-sm="94" fxFlexOffset.lt-sm="3">
-    <button mat-flat-button color="primary" fxFill>CONFIMAR</button>
-  </div>
-  <div
-    fxLayoutAlign="end center"
-    fxHide.lt-sm
-    fxFlex.lt-md="70"
-    fxFlex.lt-lg="50"
-    fxFlex.gt-md="40"
-    fxFlexOffset.lt-md="15"
-    fxFlexOffset.lt-lg="25"
-    fxFlexOffset.gt-md="30"
-  >
-    <button mat-raised-button>CONFIMAR</button>
-  </div>
+    <div fxFlex="100">
+      <div
+        fxLayout="row wrap"
+        fxFlex.lt-sm="94"
+        fxFlex.lt-md="33"
+        fxFlex.lt-lg="23"
+        fxFlex.gt-md="19"
+        fxFlexOffset.lt-sm="3"
+        fxFlexOffset.lt-md="15"
+        fxFlexOffset.lt-lg="25"
+        fxFlexOffset.gt-md="30"
+      >
+        <mat-form-field fxFlex="100" appearance="outline">
+          <mat-label>Senha</mat-label>
+          <input matInput type="password" formControlName="password" />
+          <mat-error>
+            <app-form-error-msg
+              [control]="getFormControl('password')"
+              label="Senha"
+            ></app-form-error-msg>
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div
+        fxLayout="row wrap"
+        fxFlex.lt-sm="94"
+        fxFlex.lt-md="33"
+        fxFlex.lt-lg="23"
+        fxFlex.gt-md="19"
+        fxFlexOffset.lt-sm="3"
+        fxFlexOffset.gt-xs="4"
+        fxFlexOffset.gt-md="2"
+      >
+        <mat-form-field fxFlex="100" appearance="outline">
+          <mat-label>Confirmar senha</mat-label>
+          <input matInput type="password" formControlName="confirmPassword" />
+          <mat-error
+            *ngIf="getFormControl('confirmPassword').hasError('required')"
+          >
+            É necessário confirmar sua senha
+          </mat-error>
+          <mat-error
+            *ngIf="
+              getFormControl('confirmPassword').hasError(
+                'confirmPasswordDoesNotMatch'
+              )
+            "
+          >
+            Não coincide com a senha digitada
+          </mat-error>
+        </mat-form-field>
+      </div>
+    </div>
+    <mat-form-field
+      appearance="outline"
+      fxFlex.lt-sm="94"
+      fxFlex.lt-md="70"
+      fxFlex.lt-lg="50"
+      fxFlex.gt-md="40"
+      fxFlexOffset.lt-sm="3"
+      fxFlexOffset.lt-md="15"
+      fxFlexOffset.lt-lg="25"
+      fxFlexOffset.gt-md="30"
+    >
+      <mat-label>CPF</mat-label>
+      <input
+        matInput
+        formControlName="cpf"
+        placeholder="000.000.000-00"
+        mask="000.000.000-00"
+        [dropSpecialCharacters]="false"
+      />
+      <mat-error>
+        <app-form-error-msg
+          [control]="getFormControl('cpf')"
+          label="CPF"
+        ></app-form-error-msg>
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field
+      appearance="outline"
+      fxFlex.lt-sm="94"
+      fxFlex.lt-md="70"
+      fxFlex.lt-lg="50"
+      fxFlex.gt-md="40"
+      fxFlexOffset.lt-sm="3"
+      fxFlexOffset.lt-md="15"
+      fxFlexOffset.lt-lg="25"
+      fxFlexOffset.gt-md="30"
+    >
+      <mat-label>Telefone</mat-label>
+      <input
+        matInput
+        formControlName="telephone"
+        placeholder="(00) 00000-0000"
+        mask="(00) 0000-0000||(00) 00000-0000"
+        [dropSpecialCharacters]="false"
+      />
+      <mat-error>
+        <app-form-error-msg
+          [control]="getFormControl('telephone')"
+          label="Telefone"
+        ></app-form-error-msg>
+      </mat-error>
+    </mat-form-field>
+    <div fxFlexOffset.gt-xs="10"></div>
+    <div fxHide.gt-xs fxFlex.lt-sm="94" fxFlexOffset.lt-sm="3">
+      <button mat-flat-button color="primary" fxFill>CONFIMAR</button>
+    </div>
+    <div
+      fxLayoutAlign="end center"
+      fxHide.lt-sm
+      fxFlex.lt-md="70"
+      fxFlex.lt-lg="50"
+      fxFlex.gt-md="40"
+      fxFlexOffset.lt-md="15"
+      fxFlexOffset.lt-lg="25"
+      fxFlexOffset.gt-md="30"
+    >
+      <button mat-flat-button color="primary" (click)="onSubmit()">CONFIMAR</button>
+    </div>
+  </form>
 </div>

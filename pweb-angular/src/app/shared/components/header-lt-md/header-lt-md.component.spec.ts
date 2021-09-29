@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { RegistrationComponent } from './registration.component';
+import { HeaderLtMdComponent } from './header-lt-md.component';
 
-describe('RegistrationComponent', () => {
-  let component: RegistrationComponent;
-  let fixture: ComponentFixture<RegistrationComponent>;
+describe('HeaderLtMdComponent', () => {
+  let component: HeaderLtMdComponent;
+  let fixture: ComponentFixture<HeaderLtMdComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ RegistrationComponent ]
+      declarations: [ HeaderLtMdComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(RegistrationComponent);
+    fixture = TestBed.createComponent(HeaderLtMdComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

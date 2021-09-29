@@ -19,18 +19,10 @@
 }
 
 #horizontalDivider {
-  margin: 0px 0px 25px 0px;
+  margin: 25px 0px 25px 0px;
 }
 
 #forgotPasswordAnchor {
   color: grey;
   margin-bottom: 5px;
-}
-
-:host ::ng-deep .mat-form-field-wrapper{
-  margin-bottom: -1.25em !important;
-}
-
-app-form-error-msg {
-  height: 25px !important;
 }

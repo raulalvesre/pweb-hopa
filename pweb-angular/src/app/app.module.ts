@@ -15,7 +15,11 @@ import { VitrinePageModule } from './pages/vitrine-page/vitrine-page.module';
 import { SharedModule } from './shared/shared.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CartPageComponent } from './pages/cart-page/cart-page.component';
+import { NgxMaskModule, IConfig } from 'ngx-mask'
 
+const maskConfig: Partial<IConfig> = {
+  validation: false,
+};
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,6 +37,7 @@ import { CartPageComponent } from './pages/cart-page/cart-page.component';
     FlexLayoutModule,
     AppRoutingModule,
     VitrinePageModule,
+    NgxMaskModule.forRoot(maskConfig)
   ],
   providers: [],
   bootstrap: [AppComponent]
