@@ -36,10 +36,10 @@
         >
       </div>
       <div fxFlexLayout.gt-sm="row" fxLayoutAlign.gt-sm="end">
-        <button mat-raised-button fxHide.lt-md (click)="onSubmit()">
+        <button mat-flat-button color="primary" fxHide.lt-md (click)="onSubmit()">
           ENTRAR
         </button>
-        <button mat-raised-button fxHide.gt-sm fxFill (click)="onSubmit()">
+        <button mat-flat-button color="primary" fxHide.gt-sm fxFill (click)="onSubmit()">
           ENTRAR
         </button>
       </div>
@@ -57,7 +57,7 @@
     fxFlexOffset.sm="10"
   >
     <p class="mat-h1">AINDA NÃO TENHO CADASTRO</p>
-    <button mat-raised-button fxFill routerLink="/cadastro">CLIQUE AQUI</button>
+    <button mat-flat-button color="primary" fxFill routerLink="/cadastro">CLIQUE AQUI</button>
   </div>
   <div fxFlexOffset.sm="10"></div>
 </div>
