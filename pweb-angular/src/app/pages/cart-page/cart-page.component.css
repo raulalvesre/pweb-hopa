@@ -8,9 +8,14 @@
   max-width: 1070px;
 }
 
+.btn{
+  display: flex;
+  justify-content: center;
+  width: 1070px;
+}
+
 .buttons{
-  margin-top: 18px;
-  width: 85.3%;
+  margin-top: 32px;
 }
 
 .clean-btn{

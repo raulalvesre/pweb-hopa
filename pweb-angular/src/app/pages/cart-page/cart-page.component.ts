@@ -15,12 +15,9 @@ interface Transaction {
 export class CartPageComponent{
   displayedColumns: string[] = ['item', 'quantidade', 'cost'];
   transactions: Transaction[] = [
-    {item: 'Beach ball', quantidade: 1, cost: 4},
-    {item: 'Towel', quantidade: 3, cost: 5},
-    {item: 'Frisbee',quantidade: 2, cost: 2},
-    {item: 'Sunscreen',quantidade: 4, cost: 4},
-    {item: 'Cooler',quantidade: 1, cost: 25},
-    {item: 'Swim suit',quantidade: 1, cost: 15},
+    {item: 'Camiseta', quantidade: 2, cost: 24},
+    {item: 'Calça', quantidade: 1, cost: 22},
+
   ];
   constructor() { }
 
