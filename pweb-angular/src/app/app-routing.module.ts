@@ -37,28 +37,19 @@ const routes: Routes = [
     //canActivate: [AuthGuard],
   },
   {
-<<<<<<< HEAD
     path: 'detalhe',
     component: LayoutComponent,
     pathMatch: 'full',
     children: [{ path: '', component: ProdutoDetalhePageComponent }],
     //canActivate: [AuthGuard],
-  }
-=======
+  },
+  {
     path: 'cart',
     component: LayoutComponent,
     pathMatch: 'full',
     children: [{ path: '', component: CartPageComponent }],
     //canActivate: [AuthGuard],
-  },
-  // {
-  //   path: 'detalhe',
-  //   component: LayoutComponent,
-  //   pathMatch: 'full',
-  //   children: [{ path: '', component: CartPageComponent }],
-  //   //canActivate: [AuthGuard],
-  // }
->>>>>>> 93c26ff4730008b7d306aa6fecf72b3aa47bd094
+  }
 ];
 
 @NgModule({
