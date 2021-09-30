@@ -1,26 +1,36 @@
-<main>
-  <div class="produto-card">
-      <mat-card class="example-card">
-        <img mat-card-image src="./../../../assets/camiseta01.png" alt="Foto do produto">
-        <mat-card-content>
-          <button id="favoritar" mat-icon-button color="warn" aria-label="Ícone de coração para favoritar produto">
-            <mat-icon>favorite</mat-icon>
-          </button>
-          <label for="favoritar">Adicionar à lista de desejos</label>
-        </mat-card-content>
-    </mat-card>
+<main fxLayoutAlign="center center" fxLayout="row wrap">
+  <div
+    fxFlex.lt-sm="100"
+    fxFlex.md="30"
+    fxLayoutAlign="center center"
+    id="img-produto"
+  >
+    <img
+      mat-card-image
+      src="./../../../assets/camiseta01.png"
+      fxFill
+      alt="Foto do produto"
+    />
   </div>
-  <div class="produto-detalhe">
+  <div class="produto-detalhe" fxFlex.lt-sm="100" fxFlex.md="40">
     <div>
-      <h1>Nome do Produto</h1>
+      <h1>Camiseta</h1>
       <div class="detalhes-section">
         <mat-card-title>
           <h2>Detalhes:</h2>
-          <p id="price-text">Preço: $ 59,99</p>
         </mat-card-title>
       </div>
-      <p id="produto-text">"At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat."1914 translation by H. Rackham</p>
+      <p id="produto-text">
+        "At vero eos et accusamus et iusto odio dignissimos ducimus qui
+        blanditiis praesentium voluptatum deleniti atque corrupti quos dolores
+        et quas molestias excepturi sint occaecati cupiditate non provident,
+        similique sunt in culpa qui officia deserunt mollitia animi, id est
+        laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita
+        distinctio. Nam libero tempore, cum soluta nobis est eligendi optio
+        cumque nihil impedit quo minus id quod maxime placeat facere possimus".
+      </p>
     </div>
+    <h3 id="price-text">Preço: $ 59,99</h3>
     <div id="buttons-section">
       <mat-card-content>
         <div class="size-buttons">
@@ -32,11 +42,19 @@
             <li><button mat-mini-fab color="link">GG</button></li>
           </ul>
         </div>
-        <br>
+        <br />
         <div class="shop-buttons">
           <ul>
-            <li><button mat-button mat-raised-button color="warn">COMPRAR</button></li>
-            <li><button mat-button mat-raised-button color="primary" disabled>VER OPÇÕES DE PAGAMENTO</button></li>
+            <li>
+              <button mat-button mat-flat-button disabled>
+                VER OPÇÕES DE PAGAMENTO
+              </button>
+            </li>
+            <li>
+              <button mat-button mat-flat-button color="primary">
+                COMPRAR
+              </button>
+            </li>
           </ul>
         </div>
       </mat-card-content>
