@@ -1,0 +1,54 @@
+<div class="table-page" fxLayout="column">
+  <h1 fxLayoutAlign="center">CARRINHO</h1>
+  <div fxLayoutAlign="center center">
+    <table
+      mat-table
+      [dataSource]="transactions"
+      class="mat-elevation-z8"
+      id="product-table"
+    >
+      <!-- Item Column -->
+      <ng-container matColumnDef="item">
+        <th mat-header-cell *matHeaderCellDef>Item</th>
+        <td mat-cell *matCellDef="let transaction">{{ transaction.item }}</td>
+        <td mat-footer-cell *matFooterCellDef>Total</td>
+      </ng-container>
+
+      <ng-container matColumnDef="quantidade">
+        <th mat-header-cell *matHeaderCellDef>Quantidade</th>
+        <td mat-cell *matCellDef="let transaction">
+          {{ transaction.quantidade }}
+        </td>
+        <td mat-footer-cell *matFooterCellDef>
+          {{ getTotalQuantity() | number }}
+        </td>
+      </ng-container>
+
+      <!-- Cost Column -->
+      <ng-container matColumnDef="cost">
+        <th mat-header-cell *matHeaderCellDef>Cost</th>
+        <td mat-cell *matCellDef="let transaction">
+          {{ transaction.cost | currency }}
+        </td>
+        <td mat-footer-cell *matFooterCellDef>
+          {{ getTotalCost() | currency }}
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+      <tr mat-footer-row *matFooterRowDef="displayedColumns"></tr>
+    </table>
+  </div>
+  <div
+    class="btn"
+    fxFlex="100"
+    fxFlexAlign="center"
+    fxLayout="row"
+  >
+    <mat-card-actions align="end" class="buttons" fxFlexAlign="flex-start center">
+      <button mat-stroked-button class="clean-btn" fxLayoutGap="18px" fxFlex="50">LIMPAR</button>
+      <button mat-flat-button color="primary" fxFlex="50">FINALIZAR</button>
+    </mat-card-actions>
+  </div>
+</div>

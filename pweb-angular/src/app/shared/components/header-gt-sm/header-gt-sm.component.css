@@ -1,0 +1,18 @@
+#logo {
+  height: 100px;
+  margin: 10px 10px 10px 10px;
+  cursor: pointer;
+}
+
+#search-bar {
+  font-size: 14px;
+  margin-top: 20px;
+}
+
+.toolbar-icon {
+  font-size: 25px
+}
+
+mat-toolbar {
+  height: 120px;
+}

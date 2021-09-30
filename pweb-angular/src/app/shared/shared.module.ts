@@ -9,17 +9,21 @@ import { MaterialModule } from './material/material.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { LayoutComponent } from './components/layout/layout.component';
 import { RouterModule } from '@angular/router';
-import { HeaderComponent } from './components/header/header.component';
 import { FormErrorMsgComponent } from './components/form-error-msg/form-error-msg.component';
+import { HeaderLtMdComponent } from './components/header-lt-md/header-lt-md.component';
+import { HeaderGtSmComponent } from './components/header-gt-sm/header-gt-sm.component';
+import { GenericCardComponent } from './components/generic-card/generic-card.component';
 
 const components = [
   LayoutComponent,
-  HeaderComponent,
   LogoComponent,
   LoginIconComponent,
   MenuNavBarComponent,
   SearchBarComponent,
-  FormErrorMsgComponent
+  FormErrorMsgComponent,
+  HeaderLtMdComponent,
+  HeaderGtSmComponent,
+  GenericCardComponent
 ];
 
 @NgModule({

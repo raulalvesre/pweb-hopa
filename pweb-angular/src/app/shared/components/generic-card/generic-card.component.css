@@ -1,0 +1,27 @@
+.example-card{
+  max-width: 400px;
+  margin-bottom: 20px;
+
+}
+
+img{
+  max-width: 200px;
+  max-height: 323px;
+}
+
+a:hover{
+  cursor: pointer;
+}
+
+.add-cart{
+  border: none;
+  background-color: white;
+  cursor: pointer;
+  margin-left: 30px;
+}
+
+.buttons{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}

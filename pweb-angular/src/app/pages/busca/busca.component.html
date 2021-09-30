@@ -1,0 +1,22 @@
+<div fxLayout="row wrap">
+  <p fxFlex="100" fxFlexOffset="10" class="mat-h1">Pesquisa por: camisetas</p>
+  <div class="cards" fxFlex="100">
+    <div
+      fxLayout="row wrap"
+      fxLayoutGap="16px grid"
+      fxLayoutAlign="center center"
+      fxFlex="100"
+    >
+      <div
+        fxLayoutAlign="center center"
+        fxFlex.xs="100"
+        fxFlex.sm="50"
+        fxFlex.md="33"
+        fxFlex.lg="25"
+        *ngFor="let num of [1, 2]"
+      >
+        <app-generic-card></app-generic-card>
+      </div>
+    </div>
+  </div>
+</div>
