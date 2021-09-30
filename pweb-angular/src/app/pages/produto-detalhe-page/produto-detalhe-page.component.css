@@ -1,29 +1,21 @@
 main {
   display: flex;
   flex-direction: row;
+  justify-content: center;
+  width: 90%;
 }
 
-.produto-card {
-  width: 30vw;
-  margin: 2vh 2vw 0 2vw;
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content:center;
+  align-items: center;
 }
 
-.produto-card img {
-  border: solid 1px black;
-}
-
-.produto-detalhe {
-  margin: 2vh 2vw 2vh 0;
-  width: 80vw;
-}
-
-.example-card {
-  max-width: 400px;
-}
-
-.example-header-image {
-  background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
-  background-size: cover;
+li {
+  padding-right: 4px;
 }
 
 h1 {
@@ -33,17 +25,31 @@ h1 {
 
 h2 {
   font-size: 30px;
-  padding-bottom: 1vh;
 }
 
-#produto-text {
-  font-size: 20px;
+.produto-card {
+  display: flex;
+  flex-direction: column;
+  flex: 2;
 }
 
-label {
-  line-height: 40px;
+.produto-detalhe {
+  flex: 3;
 }
 
-.mat-tab-group {
-  margin-bottom: 48px;
+.produto-card img {
+  border: solid 1px black;
+}
+
+.example-card {
+  max-width: 400px;
+}
+
+#price-text {
+  margin-left: auto;
+}
+
+.mat-card-title {
+  display: flex;
+  flex-direction: row;
 }
