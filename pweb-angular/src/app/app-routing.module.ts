@@ -16,7 +16,7 @@ const routes: Routes = [
     //canActivate: [AuthGuard],
   },
   {
-    path: 'busca',
+    path: 'buscar',
     component: LayoutComponent,
     pathMatch: 'full',
     children: [{ path: '', component: BuscaComponent }],
