@@ -1,0 +1,45 @@
+<main>
+  <div class="produto-card">
+      <mat-card class="example-card">
+        <img mat-card-image src="./../../../assets/camiseta01.png" alt="Foto do produto">
+        <mat-card-content>
+          <button id="favoritar" mat-icon-button color="warn" aria-label="Ícone de coração para favoritar produto">
+            <mat-icon>favorite</mat-icon>
+          </button>
+          <label for="favoritar">Adicionar à lista de desejos</label>
+        </mat-card-content>
+    </mat-card>
+  </div>
+  <div class="produto-detalhe">
+    <div>
+      <h1>Nome do Produto</h1>
+      <div class="detalhes-section">
+        <mat-card-title>
+          <h2>Detalhes:</h2>
+          <p id="price-text">Preço: $ 59,99</p>
+        </mat-card-title>
+      </div>
+      <p id="produto-text">"At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat."1914 translation by H. Rackham</p>
+    </div>
+    <div id="buttons-section">
+      <mat-card-content>
+        <div class="size-buttons">
+          <ul>
+            <li id="tamanhos-text"><strong>Tamanhos:</strong></li>
+            <li><button mat-mini-fab color="link">P</button></li>
+            <li><button mat-mini-fab color="link">M</button></li>
+            <li><button mat-mini-fab color="link">G</button></li>
+            <li><button mat-mini-fab color="link">GG</button></li>
+          </ul>
+        </div>
+        <br>
+        <div class="shop-buttons">
+          <ul>
+            <li><button mat-button mat-raised-button color="warn">COMPRAR</button></li>
+            <li><button mat-button mat-raised-button color="primary" disabled>VER OPÇÕES DE PAGAMENTO</button></li>
+          </ul>
+        </div>
+      </mat-card-content>
+    </div>
+  </div>
+</main>

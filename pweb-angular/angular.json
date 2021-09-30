@@ -30,7 +30,11 @@
               "src/assets"
             ],
             "styles": [
+<<<<<<< HEAD
+              "./node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
+=======
               "src/app/theme.scss",
+>>>>>>> 93c26ff4730008b7d306aa6fecf72b3aa47bd094
               "src/styles.css"
             ],
             "scripts": []
@@ -98,7 +102,7 @@
               "src/assets"
             ],
             "styles": [
-              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
+              "./node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
               "src/styles.css"
             ],
             "scripts": []

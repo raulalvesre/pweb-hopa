@@ -1,0 +1,67 @@
+main {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content:center;
+  align-items: center;
+}
+
+li {
+  padding-right: 4px;
+}
+
+h1 {
+  font-size: 40px;
+  padding: 2vh 0 2vh 0;
+}
+
+h2 {
+  font-size: 30px;
+}
+
+.produto-card {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  padding-top: 20px;
+  width: 29%;
+}
+
+.produto-detalhe {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-top: 20px;
+  padding-left: 2%;
+  width: 40%;
+}
+
+.produto-card img {
+  border: solid 1px black;
+}
+
+.example-card {
+  max-width: 400px;
+}
+
+#price-text {
+  margin-left: auto;
+}
+
+.mat-card-title {
+  display: flex;
+  flex-direction: row;
+}
+
+div .size-buttons, div .shop-buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
