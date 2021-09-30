@@ -13,12 +13,12 @@
   justify-content: center;
   margin: 0;
   align-items: center;
+  padding: 0;
 }
 
 .menu li{
   position:relative;
   background-color:#fff;
-  width:20vw;
   border-right:1px solid #c0c0c0;
   display: flex;
   justify-content: center;
@@ -28,8 +28,9 @@
 .menu li a{
   color:#333;
   text-decoration:none;
-  padding:5px 10px;
-  display:block;}
+  padding:7px 10px;
+  display:block;
+}
 
 .menu li:hover{
   background:rgb(172, 170, 170);
@@ -41,8 +42,8 @@
 
 .menu li ul{
   position:absolute;
-  top:30px;
-  right:-2px;
+  top:34px;
+  right:-1px;
   display:none;
 }
 
@@ -53,7 +54,7 @@
 .menu li ul li{
   border:1px solid #c0c0c0;
   display:block;
-  width:19.4vw;
+  width:19.5vw;
   justify-content: center;
   z-index: 1;
 }

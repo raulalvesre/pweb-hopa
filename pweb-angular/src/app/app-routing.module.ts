@@ -41,7 +41,14 @@ const routes: Routes = [
     pathMatch: 'full',
     children: [{ path: '', component: CartPageComponent }],
     //canActivate: [AuthGuard],
-  }
+  },
+  // {
+  //   path: 'detalhe',
+  //   component: LayoutComponent,
+  //   pathMatch: 'full',
+  //   children: [{ path: '', component: CartPageComponent }],
+  //   //canActivate: [AuthGuard],
+  // }
 ];
 
 @NgModule({
