@@ -1,8 +1,7 @@
 main {
   display: flex;
   flex-direction: row;
-  justify-content: center;
-  width: 90%;
+  width: 100%;
 }
 
 ul {
@@ -19,7 +18,7 @@ li {
 }
 
 h1 {
-  font-size: 50px;
+  font-size: 40px;
   padding: 2vh 0 2vh 0;
 }
 
@@ -29,12 +28,19 @@ h2 {
 
 .produto-card {
   display: flex;
-  flex-direction: column;
-  flex: 2;
+  flex-direction: row;
+  justify-content: flex-end;
+  padding-top: 20px;
+  width: 29%;
 }
 
 .produto-detalhe {
-  flex: 3;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-top: 20px;
+  padding-left: 2%;
+  width: 40%;
 }
 
 .produto-card img {
@@ -52,4 +58,10 @@ h2 {
 .mat-card-title {
   display: flex;
   flex-direction: row;
+}
+
+div .size-buttons, div .shop-buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
 }
