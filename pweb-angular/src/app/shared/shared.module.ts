@@ -12,6 +12,7 @@ import { RouterModule } from '@angular/router';
 import { FormErrorMsgComponent } from './components/form-error-msg/form-error-msg.component';
 import { HeaderLtMdComponent } from './components/header-lt-md/header-lt-md.component';
 import { HeaderGtSmComponent } from './components/header-gt-sm/header-gt-sm.component';
+import { GenericCardComponent } from './components/generic-card/generic-card.component';
 
 const components = [
   LayoutComponent,
@@ -21,7 +22,8 @@ const components = [
   SearchBarComponent,
   FormErrorMsgComponent,
   HeaderLtMdComponent,
-  HeaderGtSmComponent
+  HeaderGtSmComponent,
+  GenericCardComponent
 ];
 
 @NgModule({
