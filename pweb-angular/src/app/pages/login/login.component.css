@@ -1,5 +1,5 @@
 #container {
-  margin-top: 8vh;
+  margin-top: 9vh;
   min-height: 50vh !important;
   height: 50vh !important;
 }
@@ -29,4 +29,14 @@
 
 #padding-top-lt-md {
   height: 60px;
+}
+
+.mat-headline {
+  font-weight: 410;
+}
+
+@media (max-width: 959px){
+  #container {
+    margin-top: 6vh;
+   }
 }
