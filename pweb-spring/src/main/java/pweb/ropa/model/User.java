@@ -28,15 +28,20 @@ public class User extends Record {
     @Column(unique = true, nullable = false)
     private String email;
 
-    @Size(max = 16)
-    @NotBlank
-    @Column(unique = true, nullable = false)
-    private String username;
-
     @Size(max = 500)
     @NotBlank
     @Column(nullable = false)
     private String password;
+
+    @Size(max = 15)
+    @NotBlank
+    @Column(unique = true, nullable = false)
+    private String cpf;
+
+    @Size(max = 15)
+    @NotBlank
+    @Column(unique = true, nullable = false)
+    private String telephone;
 
 }
 

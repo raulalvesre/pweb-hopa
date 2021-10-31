@@ -11,6 +11,7 @@ export class FormValidations {
           'email': 'Email inválido',
           'passwordWithAtLeastOneNumber': 'A senha precisa ter pelo menos um número',
           'pattern': `${fieldName} inválido`,
+          'notFound': `${fieldName} não cadastrado`
       };
 
       return config[validatorName];

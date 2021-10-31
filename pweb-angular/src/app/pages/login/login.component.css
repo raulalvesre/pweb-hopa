@@ -35,6 +35,10 @@
   font-weight: 410;
 }
 
+.logging-progress {
+  height: 60vh;
+}
+
 @media (max-width: 959px){
   #container {
     margin-top: 6vh;

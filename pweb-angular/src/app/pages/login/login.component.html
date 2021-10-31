@@ -1,5 +1,6 @@
 <div
   fxFill
+  [fxHide]="isLogging"
   fxLayout="row wrap"
   fxLayoutAlign="center center"
   id="container"
@@ -27,6 +28,9 @@
           </app-form-error-msg>
         </mat-error>
       </mat-form-field>
+      <mat-error style="text-align: center;">
+        {{apiError}}
+      </mat-error>
       <div fxLayoutAlign="end none">
         <a
           id="forgotPasswordAnchor"
@@ -60,4 +64,7 @@
     <button mat-flat-button color="primary" fxFill routerLink="/cadastro">CLIQUE AQUI</button>
   </div>
   <div fxFlexOffset.sm="10"></div>
+</div>
+<div *ngIf="isLogging" class="logging-progress" fxLayout="column" fxLayoutAlign="center center">
+  <mat-progress-spinner mode="indeterminate"></mat-progress-spinner>
 </div>

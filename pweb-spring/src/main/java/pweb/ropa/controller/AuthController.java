@@ -7,9 +7,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import pweb.ropa.dto.LoginRequest;
 import pweb.ropa.dto.LoginResponse;
-import pweb.ropa.dto.RegisterUserRequest;
+import pweb.ropa.dto.NewUserRequest;
 import pweb.ropa.dto.UserResponse;
 import pweb.ropa.service.AuthService;
+import pweb.ropa.service.UserService;
 
 import javax.validation.Valid;
 
@@ -18,6 +19,7 @@ import javax.validation.Valid;
 public class AuthController {
 
     private final AuthService authService;
+    private final UserService userService;
 
     @PostMapping("/login")
     ResponseEntity<LoginResponse>  login(@RequestBody @Valid LoginRequest loginRequest) {
@@ -25,8 +27,8 @@ public class AuthController {
     }
 
     @PostMapping("/register")
-    ResponseEntity<UserResponse> register(@RequestBody  @Valid RegisterUserRequest newUser) throws Exception {
-        return ResponseEntity.ok(authService.registerUser(newUser));
+    ResponseEntity<UserResponse> register(@RequestBody  @Valid NewUserRequest newUser) throws Exception {
+        return ResponseEntity.ok(userService.createUser(newUser));
     }
 
 //    @PostMapping("/recover-password")

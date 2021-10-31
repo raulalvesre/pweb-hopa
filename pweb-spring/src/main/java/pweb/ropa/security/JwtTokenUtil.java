@@ -32,9 +32,8 @@ public class JwtTokenUtil {
 
     private final MyUserDetailsServiceImpl myUserDetailsService;
 
-    public String createToken(Long id, String username) {
+    public String createToken(Long id, String email) {
         Claims claims = Jwts.claims().setSubject(id.toString());
-        claims.put("username", username);
         claims.put("role", "user");
 
         Date now = new Date();
@@ -52,28 +51,18 @@ public class JwtTokenUtil {
     }
 
     public Authentication getAuthentication(String token) {
-        UserDetails userDetails = myUserDetailsService.loadUserByUsername(getUsername(token));
+        UserDetails userDetails = myUserDetailsService.loadUserByUsername(getEmail(token));
         return new UsernamePasswordAuthenticationToken(userDetails, "", userDetails.getAuthorities());
     }
 
-    public Long getId(String token) {
+    public String getEmail(String token) {
         return Jwts
                 .parserBuilder()
                 .setSigningKey(key)
                 .build()
                 .parseClaimsJws(token)
                 .getBody()
-                .get("sub", Long.class);
-    }
-
-    public String getUsername(String token) {
-        return Jwts
-                .parserBuilder()
-                .setSigningKey(key)
-                .build()
-                .parseClaimsJws(token)
-                .getBody()
-                .get("username", String.class);
+                .get("email", String.class);
     }
 
     public String resolveToken(HttpServletRequest req) {
@@ -90,7 +79,7 @@ public class JwtTokenUtil {
             Jwts.parserBuilder().setSigningKey(key).build().parseClaimsJws(token);
             return true;
         } catch (JwtException | IllegalArgumentException e) {
-            throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, "Expired or invalid JWT token");
+            throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, "Expired or invalid JWT token");
         }
     }
 }
