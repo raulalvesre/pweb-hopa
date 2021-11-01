@@ -3,12 +3,10 @@ package pweb.ropa.controller;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
-import pweb.ropa.dto.LoginRequest;
-import pweb.ropa.dto.LoginResponse;
-import pweb.ropa.dto.NewUserRequest;
-import pweb.ropa.dto.UserResponse;
+import pweb.ropa.dto.*;
 import pweb.ropa.service.AuthService;
 import pweb.ropa.service.UserService;
 
@@ -31,8 +29,15 @@ public class AuthController {
         return ResponseEntity.ok(userService.createUser(newUser));
     }
 
-//    @PostMapping("/recover-password")
-//    ResponseEntity<UserResponse> recoverPassword(@RequestBody  @Valid RegisterUserRequest newUser) throws Exception {
-//        return ResponseEntity.ok(authService.registerUser(newUser));
-//    }
+    @PostMapping("/receive-password-recovery-email")
+    ResponseEntity<Void> receivePasswordRecoveryEmail(@RequestBody SendRecoveryPasswordEmailRequest sendRecovEmailPasswdReq) throws Exception {
+        authService.sendChangePasswordEmail(sendRecovEmailPasswdReq);
+        return ResponseEntity.accepted().build();
+    }
+
+    @PutMapping("/change-password")
+    ResponseEntity<UserResponse> handlePasswordChange(@RequestBody @Valid ChangePasswordRequest changePasswordRequest) throws Exception {
+        authService.handlePasswordChange(changePasswordRequest);
+        return ResponseEntity.noContent().build();
+    }
 }

@@ -7,7 +7,7 @@ import org.springframework.web.server.ResponseStatusException;
 import pweb.ropa.dto.NewUserRequest;
 import pweb.ropa.dto.UserResponse;
 import pweb.ropa.mapper.UserMapper;
-import pweb.ropa.repository.user.UserRepository;
+import pweb.ropa.repository.UserRepository;
 import pweb.ropa.service.UserService;
 
 import static org.springframework.http.HttpStatus.NOT_FOUND;
