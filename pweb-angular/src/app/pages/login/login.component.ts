@@ -8,6 +8,7 @@ import { BaseFormComponent } from 'src/app/shared/components/base-form-component
 import { LoginRequest } from 'src/app/shared/interfaces/login-request';
 import { AuthService } from 'src/app/shared/services/auth.service';
 import { JwtTokenService } from 'src/app/shared/services/jwt-token.service';
+import { UrlService } from 'src/app/shared/services/url.service';
 import { ForgotPasswordDialogComponent } from './forgot-password-dialog/forgot-password-dialog.component';
 
 @Component({
@@ -18,6 +19,7 @@ import { ForgotPasswordDialogComponent } from './forgot-password-dialog/forgot-p
 export class LoginComponent extends BaseFormComponent implements OnInit {
   apiError: string;
   isLogging: boolean;
+  previousUrl: string = '';
 
   constructor(
     private formBuilder: FormBuilder,
@@ -25,6 +27,7 @@ export class LoginComponent extends BaseFormComponent implements OnInit {
     private jwtTokenService: JwtTokenService,
     private router: Router,
     private location: Location,
+    private urlService: UrlService,
     public dialog: MatDialog,
     private snackBar: MatSnackBar
   ) {
@@ -33,6 +36,11 @@ export class LoginComponent extends BaseFormComponent implements OnInit {
 
   ngOnInit(): void {
     this.isLogging = false;
+
+    this.urlService.previousUrl$.subscribe(
+      (url) => {
+        this.previousUrl = url;
+    });
 
     this.form = this.formBuilder.group({
       email: [null, [Validators.required, Validators.email]],
@@ -65,7 +73,10 @@ export class LoginComponent extends BaseFormComponent implements OnInit {
         this.snackBar.open(`LOGIN REALIZADO COM SUCESSO`, 'OK', {
           duration: 2000,
         });
-        this.location.back();
+        if (this.previousUrl?.startsWith('/recuperar-senha'))
+          this.router.navigateByUrl('');
+        else
+          this.location.back();
       },
       (error) => {
         this.isLogging = false;

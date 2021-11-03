@@ -4,6 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.AuthenticationException;
@@ -20,6 +21,8 @@ import pweb.ropa.repository.UserRepository;
 import pweb.ropa.security.JwtTokenUtil;
 import pweb.ropa.service.AuthService;
 
+import javax.mail.MessagingException;
+import javax.mail.internet.MimeMessage;
 import java.time.temporal.ChronoUnit;
 import java.util.UUID;
 
@@ -63,7 +66,7 @@ public class AuthServiceImpl implements AuthService {
     }
 
     @Override
-    public void sendChangePasswordEmail(SendRecoveryPasswordEmailRequest sendRecovEmailPasswdReq) {
+    public void sendChangePasswordEmail(SendRecoveryPasswordEmailRequest sendRecovEmailPasswdReq) throws MessagingException {
         var email = sendRecovEmailPasswdReq.getEmail();
         var user = userRepository
                 .findByEmail(email)
@@ -74,12 +77,16 @@ public class AuthServiceImpl implements AuthService {
 
         passwordRecoveryTokenRepository.save(passwordRecoveryToken);
 
-        var message = new SimpleMailMessage();
-        var messageText = "<a href=\"http//:localhost:4200/recuperar-senha?token=" + changePasswordToken + "\">Clique aqui para resetar sua senha</a>";
-        message.setSubject("ROPA: Resetar senha");
-        message.setTo("raul.alves.re@gmail.com");
-        message.setText(messageText);
-        emailSender.send(message);
+        var msg = emailSender.createMimeMessage();
+        var msgHelper = new MimeMessageHelper(msg, true);
+        var msgText = "<a href=\"http://localhost:4200/recuperar-senha?token=" + changePasswordToken + "\">Clique aqui para resetar sua senha</a>";
+
+        msgHelper.setFrom("noreply@ropa.com");
+        msgHelper.setTo(sendRecovEmailPasswdReq.getEmail());
+        msgHelper.setSubject("ROPA: Resetar senha");
+        msgHelper.setText(msgText, true);
+
+        emailSender.send(msg);
     }
 
     @Override

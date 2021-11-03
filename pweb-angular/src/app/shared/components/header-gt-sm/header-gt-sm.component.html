@@ -15,12 +15,15 @@
         </button>
       </mat-form-field>
     </div>
-    <button mat-icon-button routerLink="/cart" >
+    <button mat-icon-button *ngIf="isLoggedIn" routerLink="/cart" >
       <mat-icon class="toolbar-icon">shopping_cart</mat-icon>
     </button>
     <div fxFlex="5">
-      <button mat-icon-button id="login-icon" routerLink="/login">
-        <mat-icon class="toolbar-icon">person</mat-icon>
+      <button mat-icon-button *ngIf="!isLoggedIn" id="login-icon" routerLink="/login">
+        <mat-icon class="toolbar-icon">login</mat-icon>
+      </button>
+      <button mat-icon-button *ngIf="isLoggedIn" (click)="logOut()">
+        <mat-icon class="toolbar-icon">logout</mat-icon>
       </button>
     </div>
   </div>

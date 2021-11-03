@@ -37,16 +37,15 @@ export class JwtTokenService {
       this.decodedToken = jwt_decode(this.jwtToken);
   }
 
-  getUserObjectFromToken(): TokenInformation {
+  getTokenInformation(): TokenInformation {
     this.decodeToken();
 
     if (this.decodedToken == null)
       return null;
 
     let user: TokenInformation = {
-      id: +this.decodedToken.nameid,
+      sub: +this.decodedToken.nameid,
       role: this.decodedToken.role,
-      username: this.decodedToken.unique_name,
       exp: +this.decodedToken.exp
     };
 
@@ -62,10 +61,13 @@ export class JwtTokenService {
     return this.decodedToken ? this.decodedToken.exp : null;
   }
 
-  isTokenExpired() {
+  isTokenValid() {
+    if (!this.jwtToken)
+      return false;
+
     const expiryTime = this.getExpiryTime();
     if (expiryTime)
-      return ((1000 * +expiryTime)) - (new Date().getTime()) < 500;
+      return !(((1000 * +expiryTime)) - (new Date().getTime()) < 500);
 
     return false;
   }
