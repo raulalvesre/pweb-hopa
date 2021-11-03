@@ -4,6 +4,7 @@ import { BuscaComponent } from './pages/busca/busca.component';
 import { CartPageComponent } from './pages/cart-page/cart-page.component';
 import { LoginComponent } from './pages/login/login.component';
 import { ProdutoDetalhePageComponent } from './pages/produto-detalhe-page/produto-detalhe-page.component';
+import { RecoverPasswordComponent } from './pages/recover-password/recover-password.component';
 import { RegistrationComponent } from './pages/registration/registration.component';
 import { VitrinePageComponent } from './pages/vitrine-page/vitrine-page.component';
 import { LayoutComponent } from './shared/components/layout/layout.component';
@@ -48,6 +49,13 @@ const routes: Routes = [
     component: LayoutComponent,
     pathMatch: 'full',
     children: [{ path: '', component: CartPageComponent }],
+    //canActivate: [AuthGuard],
+  },
+  {
+    path: 'recuperar-senha',
+    component: LayoutComponent,
+    pathMatch: 'full',
+    children: [{ path: '', component: RecoverPasswordComponent }],
     //canActivate: [AuthGuard],
   }
 ];

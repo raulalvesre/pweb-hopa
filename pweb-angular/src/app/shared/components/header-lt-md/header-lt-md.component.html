@@ -12,11 +12,14 @@
         routerLink=""
       />
       <div>
-        <button mat-icon-button class="icon-btn" routerLink='/cart'>
+        <button mat-icon-button class="icon-btn" *ngIf="isLoggedIn" routerLink='/cart'>
           <mat-icon class="toolbar-icon">shopping_cart</mat-icon>
         </button>
-        <button mat-icon-button routerLink="/login" class="icon-btn">
-          <mat-icon class="toolbar-icon">person</mat-icon>
+        <button mat-icon-button *ngIf="isLoggedIn"  (click)="logOut()" class="icon-btn">
+          <mat-icon class="toolbar-icon">logout</mat-icon>
+        </button>
+        <button mat-icon-button routerLink="/login" *ngIf="!isLoggedIn" class="icon-btn">
+          <mat-icon class="toolbar-icon">login</mat-icon>
         </button>
       </div>
     </mat-toolbar-row>

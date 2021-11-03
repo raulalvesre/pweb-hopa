@@ -1,6 +1,5 @@
 export interface TokenInformation {
-  id: number;
+  sub: number;
   role: string;
-  username: string;
   exp: number;
 }

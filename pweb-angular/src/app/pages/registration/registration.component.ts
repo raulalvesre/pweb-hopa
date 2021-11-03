@@ -61,6 +61,7 @@ export class RegistrationComponent extends BaseFormComponent implements OnInit {
         [
           Validators.required,
           Validators.minLength(6),
+          this.passwordWithAtLeastOneNumber,
           Validators.maxLength(30),
         ],
       ],
@@ -121,6 +122,17 @@ export class RegistrationComponent extends BaseFormComponent implements OnInit {
           this.router.navigateByUrl('');
         }
       );
+  }
+
+  private passwordWithAtLeastOneNumber(
+    formControl: AbstractControl
+  ): { [key: string]: boolean } | null {
+    if (!formControl.value) return null;
+
+    if (!/\d/.test(formControl.value))
+      return { passwordWithAtLeastOneNumber: true };
+
+    return null;
   }
 
   private confirmPasswordMatchesPassword(

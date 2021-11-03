@@ -1,12 +1,12 @@
 package pweb.ropa.service;
 
-import pweb.ropa.dto.NewUserRequest;
-import pweb.ropa.dto.LoginRequest;
-import pweb.ropa.dto.LoginResponse;
-import pweb.ropa.dto.UserResponse;
+import pweb.ropa.dto.*;
+
+import javax.mail.MessagingException;
 
 public interface AuthService {
     LoginResponse getToken(LoginRequest loginRequest);
     UserResponse registerUser(NewUserRequest newUserRequest);
-    void sendPasswordToEmail();
+    void sendChangePasswordEmail(SendRecoveryPasswordEmailRequest sendRecovEmailPasswdReq) throws MessagingException;
+    void handlePasswordChange(ChangePasswordRequest newPassword);
 }
