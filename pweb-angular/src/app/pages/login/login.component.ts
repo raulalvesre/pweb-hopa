@@ -81,7 +81,7 @@ export class LoginComponent extends BaseFormComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe((submitted) => {
       if (submitted) {
-        this.snackBar.open(`O BACKEND AINDA NÃO EXISTE`, 'OK', {
+        this.snackBar.open(`EMAIL DE RECUPERAÇÃO DE SENHA ENVIADO`, 'OK', {
           duration: 3000,
         });
       }

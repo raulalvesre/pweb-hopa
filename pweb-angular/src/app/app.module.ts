@@ -19,6 +19,7 @@ import { CartPageComponent } from './pages/cart-page/cart-page.component';
 import { BuscaComponent } from './pages/busca/busca.component'
 import { VitrinePageComponent } from './pages/vitrine-page/vitrine-page.component';
 import { HttpClientModule } from '@angular/common/http';
+import { RecoverPasswordComponent } from './pages/recover-password/recover-password.component';
 
 const maskConfig: Partial<IConfig> = {
   validation: false,
@@ -33,6 +34,7 @@ const maskConfig: Partial<IConfig> = {
     CartPageComponent,
     VitrinePageComponent,
     BuscaComponent,
+    RecoverPasswordComponent,
   ],
   imports: [
     BrowserModule,

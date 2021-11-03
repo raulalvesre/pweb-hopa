@@ -75,9 +75,10 @@ public class AuthServiceImpl implements AuthService {
         passwordRecoveryTokenRepository.save(passwordRecoveryToken);
 
         var message = new SimpleMailMessage();
+        var messageText = "<a href=\"http//:localhost:4200/recuperar-senha?token=" + changePasswordToken + "\">Clique aqui para resetar sua senha</a>";
         message.setSubject("ROPA: Resetar senha");
         message.setTo("raul.alves.re@gmail.com");
-        message.setText("Link para resetar sua senha: http//:localhost:4200/recuperar-senha?token=" + changePasswordToken);
+        message.setText(messageText);
         emailSender.send(message);
     }
 

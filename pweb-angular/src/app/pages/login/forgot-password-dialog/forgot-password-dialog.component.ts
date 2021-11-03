@@ -3,6 +3,7 @@ import { AbstractControl, FormBuilder, Validators } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
 import { map } from 'rxjs/operators';
 import { BaseFormComponent } from 'src/app/shared/components/base-form-component/base-form-component';
+import { SendRecoveryPasswordEmailRequest } from 'src/app/shared/interfaces/send-password-recovery-email-req';
 import { AuthService } from 'src/app/shared/services/auth.service';
 import { UserService } from 'src/app/shared/services/user.service';
 
@@ -14,6 +15,8 @@ export class ForgotPasswordDialogComponent
   extends BaseFormComponent
   implements OnInit
 {
+  isLoading: boolean;
+
   constructor(
     private formBuilder: FormBuilder,
     private authService: AuthService,
@@ -34,9 +37,25 @@ export class ForgotPasswordDialogComponent
   }
 
   submit() {
-    this.dialogRef.close({
-      submitted: true
-    });
+    this.isLoading = true;
+
+    let req: SendRecoveryPasswordEmailRequest = {
+      email: this.form.value['email']
+    };
+
+    this.authService.requestChangePasswordEmail(req).subscribe(
+      (resp) => {
+        this.dialogRef.close({
+          submitted: true
+        });
+      },
+      (error) => {
+        console.log("deu ruim na hora de pedir email de recuperação de email");
+        this.dialogRef.close({
+          submitted: true
+        });
+      }
+    )
   }
 
   isEmailNotRegistered(formControl: AbstractControl) {
