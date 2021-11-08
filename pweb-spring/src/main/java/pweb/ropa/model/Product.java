@@ -18,7 +18,7 @@ public class Product {
     @Id
     @GeneratedValue
     @Column(name = "Codigo")
-    private Integer id;
+    private Long id;
 
     @Column(name = "NomeProduto")
     private String name;
@@ -30,7 +30,7 @@ public class Product {
     private Double price;
 
     @Column(name = "Destaque")
-    private Boolean flagDestaque;
+    private Boolean destaque;
 
     @Column(name = "Quantidade")
     private Integer quantity;
