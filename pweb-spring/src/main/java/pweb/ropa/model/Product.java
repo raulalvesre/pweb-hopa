@@ -1,13 +1,16 @@
 package pweb.ropa.model;
 
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import pweb.ropa.model.base.Record;
+
+import static javax.persistence.GenerationType.IDENTITY;
 
 @Entity
 @Getter
@@ -16,9 +19,8 @@ import javax.persistence.Id;
 public class Product {
 
     @Id
-    @GeneratedValue
-    @Column(name = "Codigo")
-    private Long id;
+    @GeneratedValue(strategy = IDENTITY)
+    private long id;
 
     @Column(name = "NomeProduto")
     private String name;
@@ -40,4 +42,5 @@ public class Product {
 
     @Column(name = "Imagem")
     private String imageUrl;
+
 }

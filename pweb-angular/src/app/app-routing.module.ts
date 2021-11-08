@@ -38,7 +38,7 @@ const routes: Routes = [
     //canActivate: [AuthGuard],
   },
   {
-    path: 'detalhe',
+    path: 'detalhe/:id',
     component: LayoutComponent,
     pathMatch: 'full',
     children: [{ path: '', component: ProdutoDetalhePageComponent }],

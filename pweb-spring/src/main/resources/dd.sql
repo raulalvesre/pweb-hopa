@@ -1,1 +1,0 @@
-INSERT INTO ropa.users (id, created_date, last_modified_date, cpf, email, name, password, telephone) VALUES(1, '2021-10-30 18:38:39.427694000', NULL, '479.814.778-83', 'rar@gmail.com', 'rar', '$2a$10$0rmySKtFGY.VPxNEj8Cob.HvdXdyP9LhLjxgp.LaabPu33/rxS9BW', '(11) 97645-4630');

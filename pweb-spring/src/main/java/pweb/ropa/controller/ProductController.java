@@ -18,13 +18,13 @@ public class ProductController {
     private ProductService productService;
 
     @GetMapping
-    public ResponseEntity<List<ProductDTO>> getProductByName(@RequestParam String nome){
+    public ResponseEntity<List<ProductDTO>> getProductsByName(@RequestParam String nome){
         var response = productService.getByName(nome);
         return ResponseEntity.ok(response);
     }
 
     @GetMapping(path = "/destaque")
-    public ResponseEntity<List<ProductDTO>> getProduuctByDestaque(){
+    public ResponseEntity<List<ProductDTO>> getProductsInDestaque(){
         var response = productService.getByEmphasis();
         return ResponseEntity.ok(response);
     }
