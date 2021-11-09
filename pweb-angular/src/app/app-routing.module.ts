@@ -45,7 +45,7 @@ const routes: Routes = [
     //canActivate: [AuthGuard],
   },
   {
-    path: 'cart',
+    path: 'carrinho',
     component: LayoutComponent,
     pathMatch: 'full',
     children: [{ path: '', component: CartPageComponent }],

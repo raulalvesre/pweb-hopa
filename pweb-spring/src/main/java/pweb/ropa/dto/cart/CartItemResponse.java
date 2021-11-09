@@ -12,6 +12,7 @@ import lombok.Setter;
 public class CartItemResponse {
 
     private Long productId;
+    private String productName;
     private int quantidade;
     private BigDecimal valorUnitario;
     private BigDecimal valorTotal;

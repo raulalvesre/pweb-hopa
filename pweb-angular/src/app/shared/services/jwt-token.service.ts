@@ -44,7 +44,7 @@ export class JwtTokenService {
       return null;
 
     let user: TokenInformation = {
-      sub: +this.decodedToken.nameid,
+      sub: +this.decodedToken.sub,
       role: this.decodedToken.role,
       exp: +this.decodedToken.exp
     };
