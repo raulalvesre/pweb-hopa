@@ -1,18 +1,17 @@
 package pweb.ropa.service.impl;
 
-import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
+import java.util.List;
+import java.util.stream.Collectors;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
-import pweb.ropa.dto.ProductDTO;
+
+import lombok.RequiredArgsConstructor;
+import pweb.ropa.dto.product.ProductDTO;
 import pweb.ropa.mapper.ProductMapper;
-import pweb.ropa.model.Product;
 import pweb.ropa.repository.ProductRepository;
 import pweb.ropa.service.ProductService;
-
-import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor

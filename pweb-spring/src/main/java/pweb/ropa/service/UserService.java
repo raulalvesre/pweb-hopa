@@ -1,7 +1,7 @@
 package pweb.ropa.service;
 
-import pweb.ropa.dto.NewUserRequest;
-import pweb.ropa.dto.UserResponse;
+import pweb.ropa.dto.user.NewUserRequest;
+import pweb.ropa.dto.user.UserResponse;
 
 public interface UserService {
 

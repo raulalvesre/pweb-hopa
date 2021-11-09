@@ -1,4 +1,4 @@
-package pweb.ropa.dto;
+package pweb.ropa.dto.auth;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
