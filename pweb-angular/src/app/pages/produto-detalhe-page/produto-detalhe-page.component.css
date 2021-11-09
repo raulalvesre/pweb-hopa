@@ -63,3 +63,8 @@ div .size-buttons, div .shop-buttons {
   flex-direction: row;
   justify-content: flex-end;
 }
+
+#img-produto {
+  max-width: 342px;
+  max-height: 473px;
+}
