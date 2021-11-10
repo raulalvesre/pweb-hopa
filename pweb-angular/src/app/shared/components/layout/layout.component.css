@@ -2,7 +2,6 @@ mat-sidenav-content {
   background-color: white;
 }
 
-
 :host ::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline {
   background-color: white;
   border-radius: 5px;
