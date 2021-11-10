@@ -20,10 +20,16 @@ import { BuscaComponent } from './pages/busca/busca.component'
 import { VitrinePageComponent } from './pages/vitrine-page/vitrine-page.component';
 import { HttpClientModule } from '@angular/common/http';
 import { RecoverPasswordComponent } from './pages/recover-password/recover-password.component';
+import {LOCALE_ID, DEFAULT_CURRENCY_CODE} from '@angular/core';
+import localePt from '@angular/common/locales/pt';
+import {registerLocaleData} from '@angular/common';
 
 const maskConfig: Partial<IConfig> = {
   validation: false,
 };
+
+registerLocaleData(localePt, 'pt');
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -47,7 +53,16 @@ const maskConfig: Partial<IConfig> = {
     HttpClientModule,
     NgxMaskModule.forRoot(maskConfig)
   ],
-  providers: [],
+  providers: [
+    {
+      provide: LOCALE_ID,
+      useValue: 'pt'
+    },
+    {
+      provide:  DEFAULT_CURRENCY_CODE,
+      useValue: 'BRL'
+    },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

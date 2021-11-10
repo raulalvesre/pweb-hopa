@@ -39,8 +39,8 @@ export class CartService {
   updateProductQtd(productId: number, newQtd: number): Observable<Object> {
     const userId = +this.jwtService.getTokenInformation().sub;
     const reqBody: UpdateQtdInCartReq = {
-      productId: productId,
-      newQtd: newQtd
+      productId: +productId,
+      newQtd: +newQtd
     };
 
     return this.http
@@ -50,12 +50,17 @@ export class CartService {
 
   deleteProductFromCart(productId: number): Observable<Object> {
     const userId = +this.jwtService.getTokenInformation().sub;
-    const reqBody: DeleteFromCartReq = {
-      productId: productId
-    };
 
     return this.http
-      .delete(environment.API + '/cart/' + userId, {body: reqBody})
+      .delete(environment.API + '/cart/' + userId + '/' + productId)
+      .pipe(take(1));
+  }
+
+  cleanCart(): Observable<Object> {
+    const userId = +this.jwtService.getTokenInformation().sub;
+
+    return this.http
+      .delete(environment.API + '/cart/' + userId)
       .pipe(take(1));
   }
 }

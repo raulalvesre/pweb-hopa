@@ -5,7 +5,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import pweb.ropa.dto.cart.AddToCartRequest;
 import pweb.ropa.dto.cart.CartItemResponse;
-import pweb.ropa.dto.cart.DeleteFromCartRequest;
 import pweb.ropa.dto.cart.UpdateQtdInCartRequest;
 import pweb.ropa.service.CartItemService;
 
@@ -37,10 +36,16 @@ public class CartItemController {
 
     }
 
-    @DeleteMapping("/{userId}")
-    public ResponseEntity<Void> deleteProductFromCart(@PathVariable Long userId, @RequestBody DeleteFromCartRequest req) {
-        cartItemService.deleteFromCart(userId, req.getProductId());
+    @DeleteMapping("/{userId}/{productId}")
+    public ResponseEntity<Void> deleteProductFromCart(@PathVariable Long userId, @PathVariable Long productId) {
+        cartItemService.deleteFromCart(userId, productId);
         return ResponseEntity.noContent().build();
     }
 
+    @DeleteMapping("/{userId}")
+    public ResponseEntity<Void> cleanCart(@PathVariable Long userId) {
+        cartItemService.cleanCart(userId);
+        return ResponseEntity.noContent().build();
+    }
+    
 }

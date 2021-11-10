@@ -1,7 +1,7 @@
+import { ProductResponse } from "./product-response";
+
 export interface CartItemResp {
-  productId: number,
-  productName: string,
+  product: ProductResponse;
   quantidade: number,
-  valorUnitario: number,
   valorTotal: number
 }

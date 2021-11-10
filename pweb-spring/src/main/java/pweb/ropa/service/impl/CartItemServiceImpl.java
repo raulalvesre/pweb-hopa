@@ -12,6 +12,7 @@ import pweb.ropa.repository.ProductRepository;
 import pweb.ropa.repository.UserRepository;
 import pweb.ropa.service.CartItemService;
 
+import javax.transaction.Transactional;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -69,9 +70,19 @@ public class CartItemServiceImpl implements CartItemService {
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Product not found"));
 
         var cartItem = cartItemRepository.findByIdUserAndIdProduct(user, product)
-                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Cart item not found"));
+                .orElse(null);
 
-        cartItem.setQuantidade(newQtd);
+        if (cartItem != null) {
+            cartItem.setQuantidade(newQtd);
+            cartItemRepository.save(cartItem);
+            return;
+        }
+
+        cartItem = CartItem.builder()
+                .id(new CartItem.CartItemPk(user, product))
+                .quantidade(newQtd)
+                .valorUnitario(product.getPrice())
+                .build();
         cartItemRepository.save(cartItem);
     }
 
@@ -87,6 +98,14 @@ public class CartItemServiceImpl implements CartItemService {
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Cart item not found"));
 
         cartItemRepository.delete(cartItem);
+    }
+
+    @Transactional
+    public void cleanCart(Long userId) {
+        var user = userRepository.findById(userId)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "User not found"));
+
+        cartItemRepository.deleteAllByIdUser(user);
     }
 
 }

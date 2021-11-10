@@ -9,8 +9,7 @@ import pweb.ropa.model.CartItem;
 @Mapper(componentModel = "spring")
 public abstract class CartItemMapper {
 
-    @Mapping(target = "productId", source = "id.product.id")
-    @Mapping(target = "productName", source = "id.product.name")
+    @Mapping(target = "product", source = "id.product")
     public abstract CartItemResponse toCartItemResponse(CartItem cartItem);
 
 }
