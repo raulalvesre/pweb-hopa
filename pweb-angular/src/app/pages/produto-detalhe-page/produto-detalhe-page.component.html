@@ -24,7 +24,7 @@
         {{product.description}}
       </p>
     </div>
-    <h3 id="price-text">Preço: $ {{product.price}}</h3>
+    <h3 id="price-text">Preço: {{product.price | currency }}</h3>
     <div id="buttons-section">
       <mat-card-content>
         <div class="size-buttons">

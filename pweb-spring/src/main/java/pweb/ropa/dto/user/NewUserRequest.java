@@ -1,4 +1,4 @@
-package pweb.ropa.dto;
+package pweb.ropa.dto.user;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;

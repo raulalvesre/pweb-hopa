@@ -3,10 +3,6 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { take } from 'rxjs/operators';
 import { environment } from '../../../environments/environment';
-import { ChangePasswordRequest } from '../interfaces/change-password-request';
-import { LoginRequest } from '../interfaces/login-request';
-import { NewUserRequest } from '../interfaces/new-user-request';
-import { SendRecoveryPasswordEmailRequest } from '../interfaces/send-password-recovery-email-req';
 
 @Injectable({
   providedIn: 'root',
