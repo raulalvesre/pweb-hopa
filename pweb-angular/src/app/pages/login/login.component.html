@@ -1,12 +1,10 @@
-<div
+<main
   fxFill
   [fxHide]="isLogging"
   fxLayout="row wrap"
   fxLayoutAlign="center center"
-  id="container"
 >
   <div id="login" fxFlex.lt-md fxFlex.gt-sm="35" fxFlexOffset.sm="10">
-    <div id="padding-top-lt-md" fxHide.gt-sm></div>
     <h1 class="mat-headline">Já tenho cadastro</h1>
     <form [formGroup]="form" fxLayout="column" fxFill>
       <mat-form-field appearance="outline">
@@ -64,7 +62,7 @@
     <button mat-flat-button color="primary" fxFill routerLink="/cadastro">CLIQUE AQUI</button>
   </div>
   <div fxFlexOffset.sm="10"></div>
-</div>
+</main>
 <div *ngIf="isLogging" class="logging-progress" fxLayout="column" fxLayoutAlign="center center">
   <mat-progress-spinner mode="indeterminate"></mat-progress-spinner>
 </div>

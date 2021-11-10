@@ -81,7 +81,7 @@ export class CartPageComponent {
           console.log("deu ruim na hora de att a qtd do produto no cart");
           return throwError(error);
         }),
-        switchMap(newQtd => this.cartService.getCartItems()),
+        switchMap(x => this.cartService.getCartItems()),
       )
       .subscribe(
         (resp: any) => {

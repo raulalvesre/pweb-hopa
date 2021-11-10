@@ -1,8 +1,8 @@
-<div>
+<main>
   <app-header-gt-sm fxHide.lt-md></app-header-gt-sm>
   <app-header-lt-md (sidenav)="sidenav.toggle()" fxHide.gt-sm></app-header-lt-md>
   <app-menu-nav-bar fxHide.lt-md></app-menu-nav-bar>
-  <mat-sidenav-container fxFlexFill fxHide.gt-sm>
+  <mat-sidenav-container>
     <mat-sidenav #sidenav fxLayout="column">
         <mat-expansion-panel hideToggle #destaquesPanel (opened)="panelAsButtonClick('destaques')" >
           <mat-expansion-panel-header>
@@ -52,11 +52,8 @@
           <a fxFill href="#" mat-button>Bermudas</a>
         </mat-expansion-panel>
     </mat-sidenav>
-    <mat-sidenav-content style="height: 80vh">
+    <mat-sidenav-content>
       <router-outlet></router-outlet>
     </mat-sidenav-content>
   </mat-sidenav-container>
-  <div fxHide.lt-md>
-    <router-outlet></router-outlet>
-  </div>
-</div>
+</main>
