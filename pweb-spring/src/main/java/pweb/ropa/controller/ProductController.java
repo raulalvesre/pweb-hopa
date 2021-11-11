@@ -5,6 +5,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import pweb.ropa.dto.ProductDTO;
+import pweb.ropa.model.Product;
 import pweb.ropa.repository.ProductRepository;
 import pweb.ropa.service.ProductService;
 
@@ -32,6 +33,12 @@ public class ProductController {
     @GetMapping(path = "/{id}")
     public ResponseEntity<ProductDTO>  getProductById(@PathVariable Long id){
         var response = productService.getById(id);
+        return ResponseEntity.ok(response);
+    }
+
+    @GetMapping(path = "/{categoria}")
+    public ResponseEntity<List<ProductDTO>> getProductByCategoria(@PathVariable String category){
+        var response = productService.getByCategory(category);
         return ResponseEntity.ok(response);
     }
 }

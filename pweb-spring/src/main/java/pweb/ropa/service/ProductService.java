@@ -10,4 +10,6 @@ public interface ProductService {
     List<ProductDTO> getByEmphasis();
 
     ProductDTO getById(Long id);
+
+    List<ProductDTO> getByCategory(String category);
 }

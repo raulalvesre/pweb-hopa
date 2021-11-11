@@ -42,4 +42,11 @@ public class ProductServiceImpl implements ProductService {
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Product not found"));
         return productMapper.toProductDTO(product);
     }
+
+    @Override
+    public List<ProductDTO> getByCategory(String category) {
+        return productRepository.findByCategoria(category)
+                .stream().map(productMapper::toProductDTO)
+                .collect(Collectors.toList());
+    }
 }
