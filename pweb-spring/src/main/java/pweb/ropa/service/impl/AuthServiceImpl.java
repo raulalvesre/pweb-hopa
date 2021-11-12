@@ -2,17 +2,20 @@ package pweb.ropa.service.impl;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
-import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.AuthenticationException;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
-import pweb.ropa.dto.*;
+import pweb.ropa.dto.auth.ChangePasswordRequest;
+import pweb.ropa.dto.auth.LoginRequest;
+import pweb.ropa.dto.auth.LoginResponse;
+import pweb.ropa.dto.auth.SendRecoveryPasswordEmailRequest;
+import pweb.ropa.dto.user.NewUserRequest;
+import pweb.ropa.dto.user.UserResponse;
 import pweb.ropa.mapper.UserMapper;
 import pweb.ropa.model.PasswordRecoveryToken;
 import pweb.ropa.model.User;
@@ -22,7 +25,6 @@ import pweb.ropa.security.JwtTokenUtil;
 import pweb.ropa.service.AuthService;
 
 import javax.mail.MessagingException;
-import javax.mail.internet.MimeMessage;
 import java.time.temporal.ChronoUnit;
 import java.util.UUID;
 

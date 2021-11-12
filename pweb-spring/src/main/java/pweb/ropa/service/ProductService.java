@@ -1,11 +1,11 @@
 package pweb.ropa.service;
 
-import pweb.ropa.dto.ProductDTO;
-
 import java.util.List;
 
+import pweb.ropa.dto.product.ProductDTO;
+
 public interface ProductService {
-     List<ProductDTO> getByName(String name);
+    List<ProductDTO> getByName(String name);
 
     List<ProductDTO> getByEmphasis();
 

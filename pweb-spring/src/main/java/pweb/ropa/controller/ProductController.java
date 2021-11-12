@@ -2,11 +2,13 @@ package pweb.ropa.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.*;
-import pweb.ropa.dto.ProductDTO;
-import pweb.ropa.model.Product;
-import pweb.ropa.repository.ProductRepository;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+
+import pweb.ropa.dto.product.ProductDTO;
 import pweb.ropa.service.ProductService;
 
 import java.util.List;
@@ -38,7 +40,7 @@ public class ProductController {
 
     @GetMapping(path = "/{categoria}")
     public ResponseEntity<List<ProductDTO>> getProductByCategoria(@PathVariable String category){
-        var response = productService.getByCategory(category);
+        var response = productService.getByCategoria(category);
         return ResponseEntity.ok(response);
     }
 }

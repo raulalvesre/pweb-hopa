@@ -1,4 +1,4 @@
-package pweb.ropa.dto;
+package pweb.ropa.dto.product;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;

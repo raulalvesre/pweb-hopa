@@ -1,8 +1,8 @@
 package pweb.ropa.mapper;
 
 import org.mapstruct.Mapper;
-import pweb.ropa.dto.NewUserRequest;
-import pweb.ropa.dto.UserResponse;
+import pweb.ropa.dto.user.NewUserRequest;
+import pweb.ropa.dto.user.UserResponse;
 import pweb.ropa.model.User;
 
 @Mapper(componentModel = "spring")

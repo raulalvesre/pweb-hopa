@@ -1,7 +1,7 @@
 package pweb.ropa.mapper;
 
 import org.mapstruct.Mapper;
-import pweb.ropa.dto.ProductDTO;
+import pweb.ropa.dto.product.ProductDTO;
 import pweb.ropa.model.Product;
 
 

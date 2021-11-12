@@ -1,54 +1,161 @@
-<div class="table-page" fxLayout="column">
-  <h1 fxLayoutAlign="center">CARRINHO</h1>
-  <div fxLayoutAlign="center center">
-    <table
-      mat-table
-      [dataSource]="transactions"
-      class="mat-elevation-z8"
-      id="product-table"
-    >
-      <!-- Item Column -->
-      <ng-container matColumnDef="item">
-        <th mat-header-cell *matHeaderCellDef>Item</th>
-        <td mat-cell *matCellDef="let transaction">{{ transaction.item }}</td>
-        <td mat-footer-cell *matFooterCellDef>Total</td>
-      </ng-container>
-
-      <ng-container matColumnDef="quantidade">
-        <th mat-header-cell *matHeaderCellDef>Quantidade</th>
-        <td mat-cell *matCellDef="let transaction">
-          {{ transaction.quantidade }}
-        </td>
-        <td mat-footer-cell *matFooterCellDef>
-          {{ getTotalQuantity() | number }}
-        </td>
-      </ng-container>
-
-      <!-- Cost Column -->
-      <ng-container matColumnDef="cost">
-        <th mat-header-cell *matHeaderCellDef>Cost</th>
-        <td mat-cell *matCellDef="let transaction">
-          {{ transaction.cost | currency }}
-        </td>
-        <td mat-footer-cell *matFooterCellDef>
-          {{ getTotalCost() | currency }}
-        </td>
-      </ng-container>
-
-      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
-      <tr mat-footer-row *matFooterRowDef="displayedColumns"></tr>
-    </table>
-  </div>
+<div *ngIf="isLoading" class="loading" fxLayout="column" fxLayoutAlign="center center">
+  <mat-progress-spinner mode="indeterminate"></mat-progress-spinner>
+</div>
+<div fxLayoutAlign="center center" fxLayout="row wrap" fxFlex=100 *ngIf="cartItems.data.length == 0 && !isLoading" class="emptyCart">
+  <mat-icon fxFlex=100 fxLayoutAlign="center center" id="emptyCartIcn">shopping_cart</mat-icon>
+  <h3>Seu carrinho está vazio</h3>
+</div>
+<div class="table-page" fxLayout="row wrap" fxLayoutAlign=" start" *ngIf="cartItems.data.length > 0 && !isLoading" fxFill>
   <div
-    class="btn"
     fxFlex="100"
-    fxFlexAlign="center"
+    fxFlexOffset.lt-sm="1"
+    fxFlexOffset.lt-md="5"
+    fxFlexOffset.lt-lg="15"
+    fxFlexOffset.gt-md="20"
     fxLayout="row"
   >
-    <mat-card-actions align="end" class="buttons" fxFlexAlign="flex-start center">
-      <button mat-stroked-button class="clean-btn" fxLayoutGap="18px" fxFlex="50">LIMPAR</button>
-      <button mat-flat-button color="primary" fxFlex="50">FINALIZAR</button>
-    </mat-card-actions>
+    <h1 class="mat-display-3">Carrinho</h1>
+  </div>
+  <div
+    fxLayoutAlign="center center"
+    fxFlex.lt-sm="98"
+    fxFlex.lt-md="90"
+    fxFlex.lt-lg="70"
+    fxFlex.gt-md="60"
+    fxFlexOffset.lt-sm="1"
+    fxFlexOffset.lt-md="5"
+    fxFlexOffset.lt-lg="15"
+    fxFlexOffset.gt-md="20"
+  >
+    <form [formGroup]="qtdsForm" fxFill>
+      <table
+        mat-table
+        [dataSource]="cartItems"
+        class="mat-elevation-z0"
+        id="product-table"
+        fxFlex="100"
+      >
+        <!-- Image Column -->
+        <ng-container matColumnDef="imagem">
+          <th mat-header-cell *matHeaderCellDef></th>
+          <td mat-cell *matCellDef="let cartItem">
+            <img
+              src="{{ cartItem.product.imageUrl }}"
+              fxFill
+              alt="Foto do produto"
+              class="product-img"
+            />
+          </td>
+          <td mat-footer-cell *matFooterCellDef></td>
+        </ng-container>
+
+        <!-- Item Name Column -->
+        <ng-container matColumnDef="item">
+          <th mat-header-cell *matHeaderCellDef>Item</th>
+          <td mat-cell *matCellDef="let cartItem">
+            {{ cartItem.product.name }}
+          </td>
+          <td mat-footer-cell *matFooterCellDef></td>
+        </ng-container>
+
+        <ng-container matColumnDef="quantidade">
+          <th mat-header-cell *matHeaderCellDef>Quantidade</th>
+          <td
+            mat-cell
+            *matCellDef="let cartItem; let index = index"
+            [formGroup]="getQtdsFormGroup(index)"
+          >
+            <mat-form-field>
+              <input
+                matInput
+                formControlName="qtd"
+                type="number"
+                value="{{ cartItem.quantidade }}"
+              />
+            </mat-form-field>
+          </td>
+          <td mat-footer-cell *matFooterCellDef style="font-weight: bold">
+            TOTAL:
+          </td>
+        </ng-container>
+
+        <!-- Cost Column -->
+        <ng-container matColumnDef="cost">
+          <th mat-header-cell *matHeaderCellDef>Preço</th>
+          <td mat-cell *matCellDef="let cartItem">
+            {{ cartItem.product.price | currency }}
+          </td>
+          <td mat-footer-cell *matFooterCellDef>
+            {{ getTotalCost() | currency }}
+          </td>
+        </ng-container>
+
+        <!-- Delete Column -->
+        <ng-container matColumnDef="delete">
+          <th mat-header-cell *matHeaderCellDef></th>
+          <td mat-cell *matCellDef="let cartItem">
+            <button
+              mat-icon-button
+              color="warn"
+              (click)="deleteFromCart(cartItem.product.id)"
+            >
+              <mat-icon>delete</mat-icon>
+            </button>
+          </td>
+          <td mat-footer-cell *matFooterCellDef></td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+        <tr
+          mat-footer-row
+          *matFooterRowDef="displayedColumns"
+          class="example-first-footer-row"
+        ></tr>
+      </table>
+    </form>
+  </div>
+  <div
+    fxHide.gt-xs
+    fxFlex.lt-sm="98"
+    fxFlexOffset.lt-sm="1"
+    fxLayout="row wrap"
+    style="margin-top: 20px"
+  >
+    <button
+      mat-flat-button
+      color="primary"
+      fxFlex="100"
+      style="margin-bottom: 10px"
+      (click)="pagamento()"
+    >
+      PAGAMENTO
+    </button>
+    <button mat-flat-button color="primary" fxFlex="100" (click)="cleanCart()">
+      LIMPAR
+    </button>
+  </div>
+  <div
+    fxLayoutAlign="end center"
+    fxHide.lt-sm
+    fxFlex.lt-sm="98"
+    fxFlex.lt-md="90"
+    fxFlex.lt-lg="70"
+    fxFlex.gt-md="60"
+    fxFlexOffset.lt-sm="1"
+    fxFlexOffset.lt-md="5"
+    fxFlexOffset.lt-lg="15"
+    fxFlexOffset.gt-md="20"
+    style="margin-top: 20px"
+  >
+    <button
+      mat-flat-button
+      color="primary"
+      style="margin-right: 10px"
+      (click)="cleanCart()"
+    >
+      LIMPAR
+    </button>
+    <button mat-flat-button color="primary" (click)="pagamento()">PAGAMENTO</button>
   </div>
 </div>

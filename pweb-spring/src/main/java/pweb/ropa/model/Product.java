@@ -10,6 +10,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import pweb.ropa.model.base.Record;
 
+import java.math.BigDecimal;
+
 import static javax.persistence.GenerationType.IDENTITY;
 
 @Entity
@@ -28,8 +30,8 @@ public class Product {
     @Column(name = "Descricao")
     private String description;
 
-    @Column(name = "Valor")
-    private Double price;
+    @Column(name = "Valor", nullable = false, precision = 7, scale = 2)
+    private BigDecimal price;
 
     @Column(name = "Destaque")
     private Boolean destaque;
