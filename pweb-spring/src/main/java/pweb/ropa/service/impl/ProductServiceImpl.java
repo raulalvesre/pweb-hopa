@@ -3,6 +3,7 @@ package pweb.ropa.service.impl;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import com.querydsl.core.types.Predicate;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
@@ -21,31 +22,18 @@ public class ProductServiceImpl implements ProductService {
     private final ProductMapper productMapper;
 
     @Override
-    public List<ProductDTO> getByName(String name){
-        return productRepository.findByNameContaining(name)
-                .stream().map(productMapper::toProductDTO)
-                .collect(Collectors.toList());
-    }
-
-    @Override
-    public List<ProductDTO> getByEmphasis() {
-        return productRepository.findByDestaqueTrue()
-                .stream().map(productMapper::toProductDTO)
-                .collect(Collectors.toList());
-
-    }
-
-    @Override
-    public ProductDTO getById(Long id) {
-        var product = productRepository.findById(id)
+    public ProductDTO getById(Long productId) {
+        var product = productRepository.findById(productId)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Product not found"));
+
         return productMapper.toProductDTO(product);
     }
 
     @Override
-    public List<ProductDTO> getByCategory(String category) {
-        return productRepository.findByCategory(category)
-                .stream().map(productMapper::toProductDTO)
-                .collect(Collectors.toList());
+    public List<ProductDTO> getList(Predicate predicate) {
+        var products =  productRepository.findAll(predicate);
+
+        return productMapper.toProductDTOList(products);
     }
+
 }

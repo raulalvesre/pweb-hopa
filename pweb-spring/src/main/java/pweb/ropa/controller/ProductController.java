@@ -1,14 +1,15 @@
 package pweb.ropa.controller;
 
+import com.querydsl.core.types.Predicate;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.querydsl.binding.QuerydslPredicate;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-
 import pweb.ropa.dto.product.ProductDTO;
+import pweb.ropa.model.Product;
 import pweb.ropa.service.ProductService;
 
 import java.util.List;
@@ -21,26 +22,11 @@ public class ProductController {
     private ProductService productService;
 
     @GetMapping
-    public ResponseEntity<List<ProductDTO>> getProductsByName(@RequestParam String nome){
-        var response = productService.getByName(nome);
-        return ResponseEntity.ok(response);
-    }
-
-    @GetMapping(path = "/destaque")
-    public ResponseEntity<List<ProductDTO>> getProductsInDestaque(){
-        var response = productService.getByEmphasis();
-        return ResponseEntity.ok(response);
-    }
-
-    @GetMapping(path = "/{id}")
-    public ResponseEntity<ProductDTO>  getProductById(@PathVariable Long id){
-        var response = productService.getById(id);
-        return ResponseEntity.ok(response);
-    }
-
-    @GetMapping(path = "/{categoria}")
-    public ResponseEntity<List<ProductDTO>> getProductByCategoria(@PathVariable String category){
-        var response = productService.getByCategoria(category);
+    ResponseEntity<List<ProductDTO>> getList(
+            @QuerydslPredicate(root = Product.class) Predicate predicate,
+            @RequestParam(defaultValue = "0") int page,
+            @RequestParam(defaultValue = "500") int size) throws Exception {
+        var response = this.productService.getList(predicate);
         return ResponseEntity.ok(response);
     }
 }

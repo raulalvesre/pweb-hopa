@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
+import com.querydsl.core.annotations.QueryEntity;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -15,6 +16,7 @@ import java.math.BigDecimal;
 import static javax.persistence.GenerationType.IDENTITY;
 
 @Entity
+@QueryEntity
 @Getter
 @Setter
 @NoArgsConstructor
@@ -24,25 +26,25 @@ public class Product {
     @GeneratedValue(strategy = IDENTITY)
     private long id;
 
-    @Column(name = "NomeProduto")
+    @Column(name = "nome")
     private String name;
 
-    @Column(name = "Descricao")
+    @Column(name = "descricao")
     private String description;
 
-    @Column(name = "Valor", nullable = false, precision = 7, scale = 2)
+    @Column(name = "valor", nullable = false, precision = 7, scale = 2)
     private BigDecimal price;
 
-    @Column(name = "Destaque")
+    @Column
     private Boolean destaque;
 
-    @Column(name = "Quantidade")
+    @Column(name = "quantidade")
     private Integer quantity;
 
-    @Column(name = "Categoria")
+    @Column(name = "categoria")
     private String category;
 
-    @Column(name = "Imagem")
+    @Column(name = "imagem")
     private String imageUrl;
 
 }

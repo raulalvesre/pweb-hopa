@@ -1,15 +1,13 @@
 package pweb.ropa.service;
 
-import java.util.List;
-
+import com.querydsl.core.types.Predicate;
 import pweb.ropa.dto.product.ProductDTO;
 
+import java.util.List;
+
 public interface ProductService {
-    List<ProductDTO> getByName(String name);
 
-    List<ProductDTO> getByEmphasis();
+    ProductDTO getById(Long productId);
+    List<ProductDTO> getList(Predicate predicate);
 
-    ProductDTO getById(Long id);
-
-    List<ProductDTO> getByCategory(String category);
 }
