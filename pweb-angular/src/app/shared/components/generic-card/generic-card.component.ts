@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ProductResponse } from '../../interfaces/product-response';
 
 @Component({
@@ -7,8 +7,8 @@ import { ProductResponse } from '../../interfaces/product-response';
   styleUrls: ['./generic-card.component.css']
 })
 export class GenericCardComponent implements OnInit {
-  product: ProductResponse;
-  products =  ["T-Shirt", "Jeans", "Blazer", "Shoes"]
+  @Input() product: ProductResponse;
+
   constructor() { }
 
   ngOnInit(): void {

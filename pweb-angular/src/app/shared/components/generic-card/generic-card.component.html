@@ -1,11 +1,10 @@
 <mat-card class="example-card">
   <mat-card-title-group>
-    <mat-card-title class="title-product">T-Shirt</mat-card-title>
-    <mat-card-subtitle>&#36; 12</mat-card-subtitle>
-    <a routerlink="/detalhe"><img src="./../../../assets/camiseta01.png" routerLink="/detalhe"></a>
+    <mat-card-title class="title-product">{{product.name}}</mat-card-title>
+    <mat-card-subtitle>{{product.price | currency}}</mat-card-subtitle>
+    <a><img src="{{product.imageUrl}}" routerLink="/detalhe/{{product.id}}"></a>
   </mat-card-title-group>
   <mat-card-actions align="end" class="buttons">
-    <button class="add-cart"><i class="material-icons">add_shopping_cart</i></button>
     <button mat-flat-button color="primary">COMPRAR</button>
   </mat-card-actions>
 </mat-card>
