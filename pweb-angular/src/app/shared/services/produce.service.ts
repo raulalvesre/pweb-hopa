@@ -18,7 +18,13 @@ export class ProductService {
 
   getProductsInDestaque(): Observable<Object> {
     return this.http
-      .get(environment.API + '/produto/destaque')
+      .get(environment.API + '/produto?destaque=true')
+      .pipe(take(1));
+  }
+
+  getProductsByCategoria(categoria: string): Observable<Object> {
+    return this.http
+      .get(environment.API + '/produto?categoria=' + categoria)
       .pipe(take(1));
   }
 

@@ -1,12 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ProductResponse } from 'src/app/shared/interfaces/product-response';
 import { ProductService } from 'src/app/shared/services/produce.service';
+
 
 @Component({
   selector: 'app-vitrine-page',
   templateUrl: './vitrine-page.component.html',
   styleUrls: ['./vitrine-page.component.css']
 })
+
 export class VitrinePageComponent implements OnInit {
   products: ProductResponse[];
 

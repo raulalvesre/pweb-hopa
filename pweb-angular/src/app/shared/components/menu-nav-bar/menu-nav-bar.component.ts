@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ProductService } from '../../services/produce.service';
 
 @Component({
   selector: 'app-menu-nav-bar',
@@ -6,10 +7,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./menu-nav-bar.component.css']
 })
 export class MenuNavBarComponent implements OnInit {
-
+  private productService: ProductService;
   constructor() { }
 
   ngOnInit(): void {
+
   }
 
 }
