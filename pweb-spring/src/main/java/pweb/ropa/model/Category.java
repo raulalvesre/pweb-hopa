@@ -7,6 +7,8 @@ import lombok.Setter;
 
 import javax.persistence.*;
 
+import java.util.Set;
+
 import static javax.persistence.GenerationType.IDENTITY;
 
 @Entity
@@ -18,15 +20,11 @@ public class Category {
 
     @Id
     @GeneratedValue(strategy = IDENTITY)
-    private long id;
+    private Long id;
 
     @Column(name = "nome")
     private String name;
 
-    @JoinColumn
-    @OneToMany(fetch = FetchType.LAZY)
-    @Column(name = "ProdutoId")
-    private Long productId;
-
-
+    @OneToMany(mappedBy = "category")
+    private Set<Product> products;
 }

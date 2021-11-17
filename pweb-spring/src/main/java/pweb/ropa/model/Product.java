@@ -21,7 +21,7 @@ public class Product {
 
     @Id
     @GeneratedValue(strategy = IDENTITY)
-    private long id;
+    private Long id;
 
     @Column(name = "nome")
     private String name;
@@ -38,10 +38,9 @@ public class Product {
     @Column(name = "quantidade")
     private Integer quantity;
 
-    @JoinColumn
-    @ManyToOne(fetch = FetchType.LAZY)
-    @Column(name = "CategoriaId")
-    private Category categoryId;
+    @JoinColumn(referencedColumnName = "id", nullable = false,  name = "CategoriaId")
+    @ManyToOne(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
+    private Category category;
 
     @Column(name = "imagem")
     private String imageUrl;
