@@ -4,7 +4,5 @@
     <mat-card-subtitle>{{product.price | currency}}</mat-card-subtitle>
     <a><img src="{{product.imageUrl}}" routerLink="/detalhe/{{product.id}}"></a>
   </mat-card-title-group>
-  <mat-card-actions align="end" class="buttons">
-    <button mat-flat-button color="primary">COMPRAR</button>
-  </mat-card-actions>
+ <app-buy-button class="buttons"></app-buy-button>
 </mat-card>

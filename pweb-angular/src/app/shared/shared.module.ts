@@ -13,6 +13,7 @@ import { FormErrorMsgComponent } from './components/form-error-msg/form-error-ms
 import { HeaderLtMdComponent } from './components/header-lt-md/header-lt-md.component';
 import { HeaderGtSmComponent } from './components/header-gt-sm/header-gt-sm.component';
 import { GenericCardComponent } from './components/generic-card/generic-card.component';
+import { BuyButtonComponent } from './components/buy-button/buy-button.component';
 
 const components = [
   LayoutComponent,
@@ -23,7 +24,8 @@ const components = [
   FormErrorMsgComponent,
   HeaderLtMdComponent,
   HeaderGtSmComponent,
-  GenericCardComponent
+  GenericCardComponent,
+  BuyButtonComponent
 ];
 
 @NgModule({
@@ -33,6 +35,7 @@ const components = [
     MaterialModule,
     ReactiveFormsModule,
     FlexLayoutModule,
+    ReactiveFormsModule
   ],
   declarations: components,
   exports: components
