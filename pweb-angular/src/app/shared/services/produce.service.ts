@@ -28,4 +28,10 @@ export class ProductService {
       .pipe(take(1));
   }
 
+  getProducts(searchQuery: String) {
+    return this.http
+      .get(environment.API + '/produto?' + searchQuery)
+      .pipe(take(1));
+  }
+
 }
