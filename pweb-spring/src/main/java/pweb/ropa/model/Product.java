@@ -1,9 +1,6 @@
 package pweb.ropa.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 import com.querydsl.core.annotations.QueryEntity;
 import lombok.Getter;
@@ -41,8 +38,10 @@ public class Product {
     @Column(name = "quantidade")
     private Integer quantity;
 
-    @Column(name = "categoria")
-    private String category;
+    @JoinColumn
+    @ManyToOne(fetch = FetchType.LAZY)
+    @Column(name = "CategoriaId")
+    private Category categoryId;
 
     @Column(name = "imagem")
     private String imageUrl;

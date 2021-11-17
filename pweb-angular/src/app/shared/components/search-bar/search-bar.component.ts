@@ -20,16 +20,16 @@ export class SearchBarComponent implements OnInit {
     this.results$ = this.queryField.valueChanges
     .pipe(
       map(value => value.trim()),
-      filter(value => value.lenght > 3),
-      debounceTime(200),
+   /*    filter(value => value.lenght > 3),
+      debounceTime(200), */
       distinctUntilChanged(),
+      tap(value => console.log(value)),
       switchMap(value =>  this.http.get(this.SEACH_URL, {
         params:{
           search: value,
           fields: this.fields
         }
       }))
- //     tap(value => console.log(value))
       );
   }
 
