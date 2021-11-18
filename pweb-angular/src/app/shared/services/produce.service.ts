@@ -16,21 +16,9 @@ export class ProductService {
       .pipe(take(1));
   }
 
-  getProductsInDestaque(): Observable<Object> {
-    return this.http
-      .get(environment.API + '/produto?destaque=true')
-      .pipe(take(1));
-  }
-
-  getProductsByCategoria(categoria: string): Observable<Object> {
-    return this.http
-      .get(environment.API + '/produto?categoria=' + categoria)
-      .pipe(take(1));
-  }
-
   getProducts(searchQuery: String) {
     return this.http
-      .get(environment.API + '/produto?' + searchQuery)
+      .get(environment.API + '/produto?filter=' + searchQuery)
       .pipe(take(1));
   }
 

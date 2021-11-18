@@ -17,7 +17,7 @@ export class VitrinePageComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.productService.getProductsInDestaque().subscribe(
+    this.productService.getProducts('destaque:true').subscribe(
       (resp: any) => this.products = resp,
       (error) => console.log("deu ruim na hora de pegar os produtos em destaque")
     )

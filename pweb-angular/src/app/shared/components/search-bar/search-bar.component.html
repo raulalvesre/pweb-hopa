@@ -1,6 +1,5 @@
 <mat-form-field class="form-field" appearance="outline" fxFlex=100>
-  <mat-label>Search</mat-label>
-  <input matInput type="search" [formControl]="queryField">
+  <input matInput placeholder="Buscar" [formControl]="queryField">
   <button class="btn-search" matSuffix mat-icon-button aria-label="Search" (click)="onSearch()">
     <mat-icon>search</mat-icon>
   </button>

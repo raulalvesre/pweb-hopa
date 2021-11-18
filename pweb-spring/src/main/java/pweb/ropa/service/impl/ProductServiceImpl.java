@@ -1,18 +1,17 @@
 package pweb.ropa.service.impl;
 
-import java.util.List;
-import java.util.stream.Collectors;
-
-import com.querydsl.core.types.Predicate;
+import lombok.RequiredArgsConstructor;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
-
-import lombok.RequiredArgsConstructor;
 import pweb.ropa.dto.product.ProductDTO;
 import pweb.ropa.mapper.ProductMapper;
+import pweb.ropa.model.Product;
 import pweb.ropa.repository.ProductRepository;
 import pweb.ropa.service.ProductService;
+
+import java.util.List;
 
 @Service
 @RequiredArgsConstructor
@@ -30,8 +29,8 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public List<ProductDTO> getList(Predicate predicate) {
-        var products =  productRepository.findAll(predicate);
+    public List<ProductDTO> getList(Specification<Product> spec) {
+        var products =  productRepository.findAll(spec);
 
         return productMapper.toProductDTOList(products);
     }

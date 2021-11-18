@@ -1,13 +1,14 @@
 package pweb.ropa.service;
 
-import com.querydsl.core.types.Predicate;
+import org.springframework.data.jpa.domain.Specification;
 import pweb.ropa.dto.product.ProductDTO;
+import pweb.ropa.model.Product;
 
 import java.util.List;
 
 public interface ProductService {
 
     ProductDTO getById(Long productId);
-    List<ProductDTO> getList(Predicate predicate);
+    List<ProductDTO> getList(Specification<Product> spec);
 
 }

@@ -2,7 +2,6 @@ package pweb.ropa.model;
 
 import javax.persistence.*;
 
-import com.querydsl.core.annotations.QueryEntity;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -13,7 +12,6 @@ import java.math.BigDecimal;
 import static javax.persistence.GenerationType.IDENTITY;
 
 @Entity
-@QueryEntity
 @Getter
 @Setter
 @NoArgsConstructor
