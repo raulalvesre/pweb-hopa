@@ -1,6 +1,7 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { debounceTime, distinct, distinctUntilChanged, filter, map, switchMap, tap } from 'rxjs/operators';
 
@@ -11,46 +12,28 @@ import { debounceTime, distinct, distinctUntilChanged, filter, map, switchMap, t
 })
 export class SearchBarComponent implements OnInit {
   queryField = new FormControl()
-  readonly SEACH_URL = 'http://localhost:8082/produto';
+  readonly SEACH_URL = 'http://localhost:8082/buscar';
   results$: Observable<any>
   readonly fields = "name,category";
-  constructor(private http:HttpClient) { }
+  constructor(
+    private router: Router
+    ) { }
 
   ngOnInit(): void {
-    this.results$ = this.queryField.valueChanges
-    .pipe(
-      map(value => value.trim()),
-   /*    filter(value => value.lenght > 3),
-      debounceTime(200), */
-      distinctUntilChanged(),
-      tap(value => console.log(value)),
-      switchMap(value =>  this.http.get(this.SEACH_URL, {
-        params:{
-          search: value,
-          fields: this.fields
-        }
-      }))
-      );
+    this.queryField.valueChanges
+      .pipe(
+        map(value => value.trim()),
+        debounceTime(600),
+        distinctUntilChanged(),
+      ).subscribe(x => {
+          this.router.navigateByUrl("/buscar?name=" + x);
+      });
   }
 
   onSearch(){
-    const fields = "name,category";
-    let value = this.queryField.value;
-    if(value && (value = value.trim()) !== ''){
-
-      const params_ ={
-        search: value,
-        fields: fields
-      };
-
-      let paramsHttp =  new HttpParams();
-      paramsHttp = paramsHttp.set('search', value);
-      paramsHttp = paramsHttp.set('fields', fields);
-
-      this.results$ = this.http.get(this.SEACH_URL + {paramsHttp})
-      .pipe(
-        map((res: any) => res.results)
-      );
+    const value = this.queryField.value;
+    if (value && value.trim() !== '') {
+      this.router.navigateByUrl("/buscar?name=" + value);
     }
   }
 

@@ -1,5 +1,7 @@
 <div fxLayout="row wrap">
-  <h1 fxFlex="100" fxFlexOffset="10" class="md-display-2">Pesquisa por: camisetas</h1>
+  <h1 fxFlex="100" fxFlexOffset="10" class="md-display-2">
+    Pesquisa por: {{nameSearched}}
+  </h1>
   <div class="cards" fxFlex="100">
     <div
       fxLayout="row wrap"
@@ -13,9 +15,9 @@
         fxFlex.sm="50"
         fxFlex.md="33"
         fxFlex.lg="25"
-        *ngFor="let num of [1, 2]"
+        *ngFor="let product of products"
       >
-        <app-generic-card></app-generic-card>
+        <app-generic-card [product]="product"></app-generic-card>
       </div>
     </div>
   </div>

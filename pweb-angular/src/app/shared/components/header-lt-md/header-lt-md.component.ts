@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Output } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { JwtTokenService } from '../../services/jwt-token.service';
@@ -10,6 +11,7 @@ import { JwtTokenService } from '../../services/jwt-token.service';
 })
 export class HeaderLtMdComponent {
   @Output() sidenav: EventEmitter<any> = new EventEmitter();
+  queryField: FormControl;
   isLoggedIn: boolean;
 
   constructor(
@@ -18,6 +20,8 @@ export class HeaderLtMdComponent {
     private router: Router) { }
 
   ngOnInit() {
+    this.queryField = new FormControl(null,);
+
     this.isLoggedIn = this.jwtTokenService.isTokenValid();
 
     if (this.router.url == '/login' && this.isLoggedIn) {

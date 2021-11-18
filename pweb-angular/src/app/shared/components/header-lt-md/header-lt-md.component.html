@@ -25,8 +25,8 @@
     </mat-toolbar-row>
     <mat-toolbar-row fxFlex="100">
       <div style="font-size: 14px" fxFlex="100">
-        <mat-form-field appearance="outline" fxFlex="100">
-          <input matInput placeholder="Buscar" type="text" />
+        <!-- <mat-form-field appearance="outline" fxFlex="100">
+          <input matInput placeholder="Buscar" type="text" [formControl]="queryField"/>
           <button
             class="btn-search"
             matSuffix
@@ -36,7 +36,8 @@
           >
             <mat-icon>search</mat-icon>
           </button>
-        </mat-form-field>
+        </mat-form-field> -->
+        <app-search-bar></app-search-bar>
       </div>
     </mat-toolbar-row>
 </mat-toolbar>
