@@ -2,8 +2,9 @@
   <div fxLayoutAlign="space-between center" fxFill>
     <img src="../../../../assets/LOGO.png" alt="Logo da loja" id="logo" routerLink=""/>
     <div id="search-bar" fxFlex="70">
+      <app-search-bar></app-search-bar>
       <!-- <mat-form-field appearance="outline" fxFlex="100">
-        <input matInput placeholder="Buscar" type="text" [formControl]="queryField"/>
+        <input matInput placeholder="Buscar" type="text" />
         <button
           class="btn-search"
           matSuffix
@@ -14,7 +15,6 @@
           <mat-icon>search</mat-icon>
         </button>
       </mat-form-field> -->
-      <app-search-bar></app-search-bar>
     </div>
     <button mat-icon-button *ngIf="isLoggedIn" routerLink="/carrinho" >
       <mat-icon class="toolbar-icon">shopping_cart</mat-icon>
