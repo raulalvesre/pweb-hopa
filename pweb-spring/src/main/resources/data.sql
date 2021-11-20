@@ -1,5 +1,7 @@
 INSERT IGNORE INTO ropa.users (id, created_date, last_modified_date, cpf, email, name, password, telephone) VALUES(1, '2021-10-30 18:38:39.427694000', NULL, '479.814.778-83', 'rar@gmail.com', 'rar', '$2a$10$0rmySKtFGY.VPxNEj8Cob.HvdXdyP9LhLjxgp.LaabPu33/rxS9BW', '(11) 97645-4630');
 
+INSERT IGNORE INTO ropa.users (id, created_date, last_modified_date, cpf, email, name, password, telephone) VALUES(2, '2021-11-20 8:39:39.427694000', NULL, '402.472.628-54', 'gnachbar.breve@gmail.com', 'gust', '$2b$10$0rmySKtFGY.VPxNEj8Cob.HvdXdyP9LhLjxgp.LaabPu33/rxS9BW', '(11) 93003-2634');
+
 INSERT IGNORE INTO category(id, nome)
     VALUES(1, 'Camiseta Masculina');
 

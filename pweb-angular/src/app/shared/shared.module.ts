@@ -14,6 +14,7 @@ import { HeaderLtMdComponent } from './components/header-lt-md/header-lt-md.comp
 import { HeaderGtSmComponent } from './components/header-gt-sm/header-gt-sm.component';
 import { GenericCardComponent } from './components/generic-card/generic-card.component';
 import { BuyButtonComponent } from './components/buy-button/buy-button.component';
+import {MatBadgeModule} from '@angular/material/badge';
 
 const components = [
   LayoutComponent,
@@ -35,7 +36,8 @@ const components = [
     MaterialModule,
     ReactiveFormsModule,
     FlexLayoutModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatBadgeModule
   ],
   declarations: components,
   exports: components

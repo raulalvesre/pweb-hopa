@@ -20,6 +20,7 @@
   position:relative;
   background-color:#fff;
   border-right:1px solid #c0c0c0;
+  border-left: 1px solid #c0c0c0;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -56,5 +57,5 @@
   display:block;
   width:19.5vw;
   justify-content: center;
-  z-index: 1;
+  z-index: -1;
 }

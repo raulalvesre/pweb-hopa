@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
+import { CartItemResp } from '../../interfaces/cart-item-resp';
+import { CartService } from '../../services/cart.service';
 import { JwtTokenService } from '../../services/jwt-token.service';
 
 @Component({
@@ -10,13 +12,16 @@ import { JwtTokenService } from '../../services/jwt-token.service';
   styleUrls: ['./header-gt-sm.component.css']
 })
 export class HeaderGtSmComponent implements OnInit {
+  @Input() cart: CartItemResp
   isLoggedIn: boolean;
   queryField: FormControl;
+  count: number = 0;
 
   constructor(
     private snackBar: MatSnackBar,
     private jwtTokenService: JwtTokenService,
-    private router: Router) { }
+    private router: Router,
+    private cartService: CartService) {}
 
   ngOnInit() {
     this.queryField = new FormControl(null,);
@@ -40,4 +45,18 @@ export class HeaderGtSmComponent implements OnInit {
     });
     this.router.navigateByUrl('');
   }
+
+  addToCart() {
+    this.count = this.count + 1;
+    return this.count;
+ }
+
+ clearCart() {
+    return this.count = 0;
+ }
+
+ getCart() {
+    return this.count;
+ }
+
 }
