@@ -17,6 +17,8 @@ import { MatDividerModule } from '@angular/material/divider'
 import { MatExpansionModule } from '@angular/material/expansion'
 import {MatListModule} from '@angular/material/list';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import {MatMenuModule} from '@angular/material/menu';
+import { MatBadgeModule } from '@angular/material/badge'
 
 const modules = [
   MatSidenavModule,
@@ -35,7 +37,9 @@ const modules = [
   MatDividerModule,
   MatExpansionModule,
   MatListModule,
-  MatProgressSpinnerModule
+  MatProgressSpinnerModule,
+  MatMenuModule,
+  MatBadgeModule
 ]
 
 @NgModule({

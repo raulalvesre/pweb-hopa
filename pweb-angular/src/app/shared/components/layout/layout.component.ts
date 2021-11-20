@@ -18,14 +18,6 @@ export class LayoutComponent implements OnInit {
 
   panelAsButtonClick(panelName: string) {
     //do stuff
-    if (panelName === 'destaques') {
-      this.destaquesPanel.close();
-      console.log("abre destaques");
-    }
-
-    if (panelName === 'promocoes') {
-      this.promocoesPanel.close();
-      console.log("abre promocoes");
-    }
+    this.router.navigateByUrl("");
   }
 }

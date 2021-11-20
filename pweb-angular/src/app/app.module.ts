@@ -40,7 +40,7 @@ registerLocaleData(localePt, 'pt');
     CartPageComponent,
     VitrinePageComponent,
     BuscaComponent,
-    RecoverPasswordComponent,
+    RecoverPasswordComponent
   ],
   imports: [
     BrowserModule,
