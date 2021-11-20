@@ -7,11 +7,13 @@ import { ProductService } from '../../services/produce.service';
   styleUrls: ['./menu-nav-bar.component.css']
 })
 export class MenuNavBarComponent implements OnInit {
-  private productService: ProductService;
-  constructor() { }
+
+  constructor(
+    private productService: ProductService
+  ) { }
 
   ngOnInit(): void {
-
   }
+
 
 }

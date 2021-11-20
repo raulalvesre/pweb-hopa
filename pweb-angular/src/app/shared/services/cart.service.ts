@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { take } from 'rxjs/operators';
 import { environment } from '../../../environments/environment';
 import { AddToCartReq } from '../interfaces/add-to-cart-request';
@@ -12,6 +12,9 @@ import { JwtTokenService } from './jwt-token.service';
   providedIn: 'root',
 })
 export class CartService {
+  public productList = new BehaviorSubject<any>([]);
+
+
   constructor(
     private http: HttpClient,
     private jwtService: JwtTokenService
