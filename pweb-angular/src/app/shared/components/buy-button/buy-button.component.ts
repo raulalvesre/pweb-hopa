@@ -27,7 +27,7 @@ export class BuyButtonComponent implements OnInit {
     this.cartService.addToCart(this.product.id).subscribe(
       (resp: any) => {
         this.cartService.qtedItems.next();
-        this.snackBar.open(`PRODUTO ADICIONADO AO CARRINHO`, 'OK');
+        this.snackBar.open(`PRODUTO ADICIONADO AO CARRINHO`, 'OK',{duration: 2000});
     });
   }
 }
