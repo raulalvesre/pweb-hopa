@@ -3,9 +3,10 @@
   margin-bottom: 20px;
 }
 
+
 img{
-  min-width: 200px;
-  min-height: 323px;
+  min-width: 300px;
+  min-height: 300px;
   max-width: 10vw;
   max-height: 10vh;
 }

@@ -1,10 +1,12 @@
 ::ng-deep .mat-menu-panel {
   padding: 0 10px!important;
-  max-width: 420px !important;
+  max-width: 480px !important;
   width: 100vw!important;
 }
 
-.mat-menu-trigger {
-  border-bottom: 1px solid #282828 !important;
-  border-radius: 0px;
+
+
+.btn-ctg{
+  border:1px solid #282828 ;
+  border-radius: 0 0 4px 4px;
 }

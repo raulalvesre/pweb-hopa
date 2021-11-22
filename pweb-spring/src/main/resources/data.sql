@@ -23,27 +23,30 @@ INSERT IGNORE INTO category(id, nome)
 INSERT IGNORE INTO category(id, nome)
     VALUES(7, 'Camiseta Infantil');
 
+INSERT IGNORE INTO category(id, nome)
+    VALUES(8, 'Bermuda Infantil');
+
 /*Moda Masculina*/
 INSERT IGNORE INTO ropa.product (id, categoria_id, descricao, destaque, imagem, nome, valor, quantidade)
-	VALUES (1, 2, 'Calça Jeans Básica Masculina', 1, 'https://s.alicdn.com/@sc04/kf/Uab75066b2e264287906f19f9a563b1cfS.png', 'Calça Jeans', 112.90, 25);
+	VALUES (1, 2, 'Calça de Moletom Básica Masculina', 1, 'https://yhbeulwvfr.map.azionedge.net/img/2021/05/produto/658/1/large/01-calca-moletom-masculina-jogger-slim-bluhen-grecia.png', 'Calça de Moletom', 112.90, 25);
     
 INSERT IGNORE INTO ropa.product (id, categoria_id, descricao, destaque, imagem, nome, valor, quantidade)
-	VALUES (2, 1, 'Camisa Básica  Maculina', 1, 'https://thenorthface.vteximg.com.br/arquivos/ids/177540-1000-1000/4AAZNH2G-Camiseta-Masculina-TNF-Logo-Tee-Azul-detalhe-4.png?v=637388978919530000', 'Camiseta Básica', 59.90, 2);
+	VALUES (2, 1, 'Camisa Básica  Maculina', 1, 'https://yhbeulwvfr.map.azionedge.net/img/2021/09/produto/1235/1/large/01-camiseta-masculina-basica-bluhen-maui.png', 'Camiseta Básica', 59.90, 2);
 
 INSERT IGNORE INTO ropa.product (id, categoria_id, descricao, destaque, imagem, nome, valor, quantidade)
-	VALUES (3, 3, 'Bermuda de Sarja Masculina', 1, 'https://www.transitolivre.com.br/media/catalog/product/cache/1/image/800x/17f82f742ffe127f42dca9de82fb58b1/2/0/20210401_123526.png', 'Bermuda Masculina', 69.90, 20);
+	VALUES (3, 3, 'Bermuda de Moletom Masculina', 1, 'https://yhbeulwvfr.map.azionedge.net/img/2021/05/produto/545/1/large/01-bermuda-moletom-masculina-bluhen-san-diego.png', 'Bermuda Masculina', 69.90, 20);
 
 /*Moda Feminina*/
 INSERT IGNORE INTO ropa.product (id, categoria_id, descricao, destaque, imagem, nome, valor, quantidade)
-	VALUES (5, 4, 'Camiseta Magali Feminina', 1, 'https://static3.tcdn.com.br/img/img_prod/322139/camiseta_feminina_magali_50_anos_high_score_1457_2_20200214105419.jpg', 'Camiseta Magali', 19.89, 29);
+	VALUES (5, 4, 'Camiseta Estampada Feminina', 1, 'https://cursodesublimacao.com/wp-content/uploads/2017/05/como-estampar-camiseta-feminina.png', 'Camiseta Feminina', 19.89, 29);
     
 INSERT IGNORE INTO ropa.product (id, categoria_id, descricao, destaque, imagem, nome, valor, quantidade)
-	VALUES (6, 5, 'Calça Jeans Cintura Super Alta Feminina', 1, 'https://static.wixstatic.com/media/5fbbc4_27c6ffe1ece84be4bcc219e7f1d41299~mv2.png/v1/fill/w_854,h_1292,al_c/5fbbc4_27c6ffe1ece84be4bcc219e7f1d41299~mv2.png', 'Calça Jeans', 89.90, 10);
+	VALUES (6, 5, 'Calça Jeans Cintura Alta Feminina', 1, 'https://img.irroba.com.br/fit-in/600x600/filters:fill(transparent):quality(95)/salomaoc/catalog/teste/feminino/calca/calca-f-1-217008.20210802161242.png', 'Calça Jeans', 89.90, 10);
     
 /*Blusa Feminina*/
 
 INSERT IGNORE INTO ropa.product (id, categoria_id, descricao, destaque, imagem, nome, valor, quantidade)
-	VALUES (7, 6, 'Short Jeans Cintura Alta Feminino', 1, 'https://t-static.dafiti.com.br/c91bx2dlvpA0PAZXSpybWKWP60g=/fit-in/430x623/static.dafiti.com.br/p/ks-casual-%26-sport-short-jeans-feminino-destroyed-rasgado-premium-4410-9111408-1-zoom.jpg', 'Short Jeans Cintura Alta', 39.99, 100);
+	VALUES (7, 6, 'Short Moletom Feminino', 1, 'https://images.tcdn.com.br/img/img_prod/988252/short_feminino_adidas_603_1_bab4ed2173543ecf775023312dbcd73f.png', 'Short  Moletom Adidas', 39.99, 100);
     
     
 /*Moda Infantil*/
@@ -53,3 +56,6 @@ INSERT IGNORE INTO ropa.product (id, categoria_id, descricao, destaque, imagem, 
     
 INSERT IGNORE INTO ropa.product (id, categoria_id, descricao, destaque, imagem, nome, valor, quantidade)
 	VALUES (9, 7, 'Camiseta Infantil Feminina', 1, 'https://i.pinimg.com/originals/5b/9e/31/5b9e31a43090b96b7dfc844b10555e47.png', 'Camiseta Infatil Feminina', 29.90, 120);
+
+INSERT IGNORE INTO ropa.product (id, categoria_id, descricao, destaque, imagem, nome, valor, quantidade)
+	VALUES (10, 8, 'Bermuda Masculina Infantil - Moda Praia', 1, 'https://1679028l.ha.azioncdn.net/img/2020/12/produto/4706/1/large/1870.png', 'Bermuda Masculina Infantil', 69.90, 20);

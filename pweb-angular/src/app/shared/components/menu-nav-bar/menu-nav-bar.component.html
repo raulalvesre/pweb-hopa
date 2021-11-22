@@ -1,20 +1,20 @@
-<button mat-button [matMenuTriggerFor]="aboveMenu" fxFlex="33">Masculino</button>
+<button mat-button [matMenuTriggerFor]="aboveMenu" fxFlex="33" class="btn-ctg">Masculino</button>
 <mat-menu #aboveMenu="matMenu" class='menu-man'>
   <button mat-menu-item routerLink="/buscar" [queryParams]="{categoria: 1}">Camiseta</button>
   <button mat-menu-item routerLink="/buscar" [queryParams]="{categoria: 2}">Calça</button>
   <button mat-menu-item routerLink="/buscar" [queryParams]="{categoria: 3}">Bermuda</button>
 </mat-menu>
 
-<button mat-button [matMenuTriggerFor]="belowMenu" fxFlex="33">Feminino</button>
+<button mat-button [matMenuTriggerFor]="belowMenu" fxFlex="33" class="btn-ctg">Feminino</button>
 <mat-menu #belowMenu="matMenu">
   <button mat-menu-item routerLink="/buscar" [queryParams]="{categoria: 4}">Camiseta</button>
   <button mat-menu-item routerLink="/buscar" [queryParams]="{categoria: 5}">Calça</button>
   <button mat-menu-item routerLink="/buscar" [queryParams]="{categoria: 6}">Bermuda</button>
 </mat-menu>
 
-<button mat-button [matMenuTriggerFor]="beforeMenu" fxFlex>Infantil</button>
+<button mat-button [matMenuTriggerFor]="beforeMenu" fxFlex class="btn-ctg">Infantil</button>
 <mat-menu #beforeMenu="matMenu">
   <button mat-menu-item routerLink="/buscar" [queryParams]="{categoria: 7}">Camiseta</button>
-  <button mat-menu-item routerLink="/buscar" [queryParams]="{categoria: 8}">Calça</button>
-  <button mat-menu-item routerLink="/buscar" [queryParams]="{categoria: 9}">Bermuda</button>
+  <button mat-menu-item routerLink="/buscar" [queryParams]="{categoria: 9}">Calça</button>
+  <button mat-menu-item routerLink="/buscar" [queryParams]="{categoria: 8}">Bermuda</button>
 </mat-menu>
