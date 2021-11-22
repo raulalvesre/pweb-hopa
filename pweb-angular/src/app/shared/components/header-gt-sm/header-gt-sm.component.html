@@ -16,9 +16,9 @@
         </button>
       </mat-form-field> -->
     </div>
-    <button mat-icon-button *ngIf="isLoggedIn" routerLink="/carrinho" >
-      <mat-icon [matBadge]="count" matBadgeColor="warn" class="toolbar-icon">shopping_cart</mat-icon>
-    </button>
+    <div *ngIf="isLoggedIn">
+      <app-cart-button></app-cart-button>
+    </div>
     <div fxFlex="5">
       <button mat-icon-button *ngIf="!isLoggedIn" id="login-icon" routerLink="/login">
         <mat-icon class="toolbar-icon">login</mat-icon>

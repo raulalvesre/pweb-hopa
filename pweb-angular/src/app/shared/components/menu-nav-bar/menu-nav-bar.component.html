@@ -12,7 +12,7 @@
   <button mat-menu-item routerLink="/buscar" [queryParams]="{categoria: 6}">Bermuda</button>
 </mat-menu>
 
-<button mat-button [matMenuTriggerFor]="beforeMenu" fxFlex="33">Infantil</button>
+<button mat-button [matMenuTriggerFor]="beforeMenu" fxFlex>Infantil</button>
 <mat-menu #beforeMenu="matMenu">
   <button mat-menu-item routerLink="/buscar" [queryParams]="{categoria: 7}">Camiseta</button>
   <button mat-menu-item routerLink="/buscar" [queryParams]="{categoria: 8}">Calça</button>

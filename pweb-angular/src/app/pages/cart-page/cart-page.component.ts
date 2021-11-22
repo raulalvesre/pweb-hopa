@@ -122,6 +122,7 @@ export class CartPageComponent {
     ).subscribe(
       (resp: any) => {
         this.cartItems.data = resp
+        this.cartService.qtedItems.next();
         this.isLoading = false;
       },
       (error) => console.log("deu ruim na hora de pegar os cart itens")
@@ -141,7 +142,8 @@ export class CartPageComponent {
       })
     ).subscribe(
       (resp: any) => {
-        this.cartItems.data = resp
+        this.cartItems.data = resp;
+        this.cartService.qtedItems.next();
         this.isLoading = false;
       },
       (error) => console.log("deu ruim na hora de pegar os cart itens")

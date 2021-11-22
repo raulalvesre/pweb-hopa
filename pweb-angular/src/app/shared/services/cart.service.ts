@@ -1,10 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable, Subject } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import { take } from 'rxjs/operators';
 import { environment } from '../../../environments/environment';
 import { AddToCartReq } from '../interfaces/add-to-cart-request';
-import { DeleteFromCartReq } from '../interfaces/delete-from-cart-req';
 import { UpdateQtdInCartReq } from '../interfaces/update-qtd-in-cart-req';
 import { JwtTokenService } from './jwt-token.service';
 
@@ -12,23 +11,12 @@ import { JwtTokenService } from './jwt-token.service';
   providedIn: 'root',
 })
 export class CartService {
-  public productList = new BehaviorSubject<any>([]);
-  private qtedItem = new  Subject<any>();
+  qtedItems = new  Subject<void>();
 
   constructor(
     private http: HttpClient,
     private jwtService: JwtTokenService
     ) {}
-
-  item$ = this.qtedItem.asObservable();
-
-  addQtd(qtd: any){
-    this.qtedItem.next(qtd);
-  }
-
-  removeQtd(qtd:any){
-    this.qtedItem.next(qtd);
-  }
 
   getCartItems(): Observable<Object> {
     const userId = +this.jwtService.getTokenInformation().sub;
@@ -38,12 +26,19 @@ export class CartService {
       .pipe(take(1));
   }
 
+  getQuantityOfItensInCart(): Observable<Object> {
+    const userId = +this.jwtService.getTokenInformation().sub;
+
+    return this.http
+      .get(environment.API + '/cart/quantity/' + userId)
+      .pipe(take(1));
+  }
+
   addToCart(productId: number): Observable<Object> {
     const userId = +this.jwtService.getTokenInformation().sub;
     const reqBody: AddToCartReq = {
       productId: productId
     };
-    this.addQtd(productId);
 
     return this.http
       .post(environment.API + '/cart/' + userId, reqBody)
@@ -65,7 +60,6 @@ export class CartService {
   deleteProductFromCart(productId: number): Observable<Object> {
     const userId = +this.jwtService.getTokenInformation().sub;
 
-    this.removeQtd(productId);
     return this.http
       .delete(environment.API + '/cart/' + userId + '/' + productId)
       .pipe(take(1));

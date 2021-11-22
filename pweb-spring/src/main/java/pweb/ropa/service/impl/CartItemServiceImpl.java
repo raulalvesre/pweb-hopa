@@ -36,6 +36,14 @@ public class CartItemServiceImpl implements CartItemService {
     }
 
     @Override
+    public Integer getQuantityOfItemsInCart(Long userId) {
+        var user = userRepository.findById(userId)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "User not found"));
+
+        return cartItemRepository.countByIdUser(user);
+    }
+
+    @Override
     public void addToCart(Long userId, Long productId) {
         var user = userRepository.findById(userId)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "User not found"));

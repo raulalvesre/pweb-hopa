@@ -1,31 +1,24 @@
 <mat-toolbar fxLayout="row wrap" fxLayoutAlign=" none" color="primary">
-    <mat-toolbar-row fxLayoutAlign="space-between start" fxFlex="100">
-      <div>
-        <button mat-icon-button (click)="toggle()" class="icon-btn">
-          <mat-icon class="toolbar-icon">menu</mat-icon>
-        </button>
-      </div>
-      <img
-        src="../../../../assets/LOGO.png"
-        alt="Logo da loja"
-        id="logo"
-        routerLink=""
-      />
-      <div>
-        <button mat-icon-button class="icon-btn" *ngIf="isLoggedIn" routerLink='/carrinho'>
-          <mat-icon class="toolbar-icon">shopping_cart</mat-icon>
-        </button>
-        <button mat-icon-button *ngIf="isLoggedIn"  (click)="logOut()" class="icon-btn">
-          <mat-icon class="toolbar-icon">logout</mat-icon>
-        </button>
-        <button mat-icon-button routerLink="/login" *ngIf="!isLoggedIn" class="icon-btn">
-          <mat-icon class="toolbar-icon">login</mat-icon>
-        </button>
-      </div>
-    </mat-toolbar-row>
-    <mat-toolbar-row fxFlex="100">
-      <div style="font-size: 14px" fxFlex="100">
-        <!-- <mat-form-field appearance="outline" fxFlex="100">
+  <mat-toolbar-row fxLayoutAlign="space-between start" fxFlex="100">
+    <div>
+      <button mat-icon-button (click)="toggle()" class="icon-btn">
+        <mat-icon class="toolbar-icon">menu</mat-icon>
+      </button>
+    </div>
+    <img src="../../../../assets/LOGO.png" alt="Logo da loja" id="logo" routerLink="" />
+    <div>
+      <app-cart-button *ngIf="isLoggedIn"></app-cart-button>
+      <button mat-icon-button *ngIf="isLoggedIn" (click)="logOut()" class="icon-btn">
+        <mat-icon class="toolbar-icon">logout</mat-icon>
+      </button>
+      <button mat-icon-button routerLink="/login" *ngIf="!isLoggedIn" class="icon-btn">
+        <mat-icon class="toolbar-icon">login</mat-icon>
+      </button>
+    </div>
+  </mat-toolbar-row>
+  <mat-toolbar-row fxFlex="100">
+    <div style="font-size: 14px" fxFlex="100">
+      <!-- <mat-form-field appearance="outline" fxFlex="100">
           <input matInput placeholder="Buscar" type="text" [formControl]="queryField"/>
           <button
             class="btn-search"
@@ -37,7 +30,7 @@
             <mat-icon>search</mat-icon>
           </button>
         </mat-form-field> -->
-        <app-search-bar></app-search-bar>
-      </div>
-    </mat-toolbar-row>
+      <app-search-bar></app-search-bar>
+    </div>
+  </mat-toolbar-row>
 </mat-toolbar>

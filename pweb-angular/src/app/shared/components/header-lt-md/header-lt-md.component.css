@@ -19,3 +19,7 @@ mat-form-field {
 mat-toolbar {
   height: 138px;
 }
+
+app-cart-button {
+  margin-right: 15px;
+}

@@ -13,6 +13,7 @@ import pweb.ropa.model.User;
 @Repository
 public interface CartItemRepository extends CrudRepository<CartItem, CartItem.CartItemPk> {
     List<CartItem> findByIdUser(User user);
+    Integer countByIdUser(User user);
     Optional<CartItem> findByIdUserAndIdProduct(User user, Product product);
     void deleteAllByIdUser(User user);
 }

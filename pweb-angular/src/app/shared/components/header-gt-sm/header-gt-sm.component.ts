@@ -13,25 +13,16 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./header-gt-sm.component.css']
 })
 export class HeaderGtSmComponent implements OnInit {
-  @Input() cart: CartItemResp
-  count: any;
   isLoggedIn: boolean;
-  queryField: FormControl;
-  subscription: Subscription;
-  itens: Array<any> = []
 
   constructor(
     private snackBar: MatSnackBar,
     private jwtTokenService: JwtTokenService,
     private router: Router,
-    private cartService: CartService
     ) {    }
 
 
   ngOnInit() {
-    this.queryField = new FormControl(null,);
-    this.queryField.valueChanges.subscribe(x => console.log(x));
-
     this.isLoggedIn = this.jwtTokenService.isTokenValid();
 
     if (this.router.url == '/login' && this.isLoggedIn) {
@@ -40,17 +31,6 @@ export class HeaderGtSmComponent implements OnInit {
       });
       this.router.navigateByUrl('');
     }
-
-    this.subscription = this.cartService.item$.subscribe((resp: any) => {
-
-      if(this.itens.includes(resp)){
-       let test = this.itens.filter(item => item !== resp)
-        this.count = test.length;
-        return;
-      };
-      this.itens.push(resp)
-      this.count = this.itens.length;
-    });
   }
 
   logOut() {

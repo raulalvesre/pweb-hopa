@@ -15,6 +15,7 @@ import { HeaderGtSmComponent } from './components/header-gt-sm/header-gt-sm.comp
 import { GenericCardComponent } from './components/generic-card/generic-card.component';
 import { BuyButtonComponent } from './components/buy-button/buy-button.component';
 import { AppRoutingModule } from '../app-routing.module';
+import { CartButtonComponent } from './components/cart-button/cart-button.component';
 
 const components = [
   LayoutComponent,
@@ -26,7 +27,8 @@ const components = [
   HeaderLtMdComponent,
   HeaderGtSmComponent,
   GenericCardComponent,
-  BuyButtonComponent
+  BuyButtonComponent,
+  CartButtonComponent
 ];
 
 @NgModule({

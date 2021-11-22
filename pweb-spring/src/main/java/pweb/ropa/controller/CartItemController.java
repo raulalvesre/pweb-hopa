@@ -23,6 +23,12 @@ public class CartItemController {
         return ResponseEntity.ok(response);
     }
 
+    @GetMapping("quantity/{userId}")
+    public ResponseEntity<Integer> getQuantiyOfItemsInCart(@PathVariable Long userId) {
+        var response = cartItemService.getQuantityOfItemsInCart(userId);
+        return ResponseEntity.ok(response);
+    }
+
     @PostMapping("/{userId}")
     public ResponseEntity<Void> addToCart(@PathVariable Long userId, @RequestBody AddToCartRequest req) {
         cartItemService.addToCart(userId, req.getProductId());
@@ -47,5 +53,5 @@ public class CartItemController {
         cartItemService.cleanCart(userId);
         return ResponseEntity.noContent().build();
     }
-    
+
 }
