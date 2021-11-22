@@ -1,7 +1,7 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { debounceTime, distinct, distinctUntilChanged, filter, map, switchMap, tap } from 'rxjs/operators';
 
@@ -12,14 +12,15 @@ import { debounceTime, distinct, distinctUntilChanged, filter, map, switchMap, t
 })
 export class SearchBarComponent implements OnInit {
   queryField = new FormControl()
-  readonly SEACH_URL = 'http://localhost:8082/buscar';
-  results$: Observable<any>
-  readonly fields = "name,category";
+
   constructor(
-    private router: Router
+    private router: Router,
+    private route: ActivatedRoute
     ) { }
 
   ngOnInit(): void {
+    this.queryField.setValue(this.route.snapshot.queryParamMap.get("name"));
+
     this.queryField.valueChanges
       .pipe(
         map(value => value.trim()),

@@ -29,7 +29,9 @@ export class BuscaComponent implements OnInit {
           const category = this.route.snapshot.queryParamMap.get('categoria');
           let searchQ;
 
-          if (name != null)
+          if (name == null && category == null)
+            searchQ = '';
+          else if (name != null)
             searchQ = filterBuilder.like('name', '*' + name + '*');
           else
             searchQ = filterBuilder.equal('category.id', category);
