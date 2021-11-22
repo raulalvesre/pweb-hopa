@@ -20,7 +20,6 @@ export class CartButtonComponent implements OnInit {
       switchMap(() => this.cartService.getQuantityOfItensInCart())
     ).subscribe(
       (qtdItem: any) => {
-        console.log(qtdItem);
         this.qtd = qtdItem
       }
     );
