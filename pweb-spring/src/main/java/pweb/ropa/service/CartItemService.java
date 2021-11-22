@@ -11,5 +11,6 @@ public interface CartItemService {
     void updateQtd(Long userId, Long productId, int newQtd);
     void deleteFromCart(Long userId, Long productId);
     void cleanCart(Long userId);
+
     
 }

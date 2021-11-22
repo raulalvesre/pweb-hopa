@@ -8,12 +8,9 @@ import { ProductService } from '../../services/produce.service';
 })
 export class MenuNavBarComponent implements OnInit {
 
-  constructor(
-    private productService: ProductService
-  ) { }
+  constructor( ) { }
 
   ngOnInit(): void {
   }
-
 
 }

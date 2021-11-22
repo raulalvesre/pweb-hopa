@@ -1,31 +1,20 @@
-<div class="nav-bar">
-  <ul class="menu" fxFlex=100>
-      <li fxFlex=20>
-      <a href="">Feminino</a>
-      <ul>
-        <li><a href="">Calças</a></li>
-        <li><a href="">Camisetas</a></li>
-        <li><a href="">Blusas</a></li>
-        <li><a href="">Bermudas</a></li>
-      </ul>
-    </li>
-    <li fxFlex=20>
-      <a href="">Masculino</a>
-      <ul>
-        <li><a href="">Calças</a></li>
-        <li><a href="">Camisetas</a></li>
-        <li><a href="">Blusas</a></li>
-        <li><a href="">Bermudas</a></li>
-      </ul>
-    </li>
-    <li fxFlex=20>
-      <a href="">Infantil</a>
-      <ul>
-        <li><a href="">Calças</a></li>
-        <li><a href="">Camisetas</a></li>
-        <li><a href="">Blusas</a></li>
-        <li><a href="">Bermudas</a></li>
-      </ul>
-    </li>
-  </ul>
-</div>
+<button mat-button [matMenuTriggerFor]="aboveMenu" fxFlex="33">Masculino</button>
+<mat-menu #aboveMenu="matMenu" class='menu-man'>
+  <button mat-menu-item routerLink="/buscar" [queryParams]="{categoria: 1}">Camiseta</button>
+  <button mat-menu-item routerLink="/buscar" [queryParams]="{categoria: 2}">Calça</button>
+  <button mat-menu-item routerLink="/buscar" [queryParams]="{categoria: 3}">Bermuda</button>
+</mat-menu>
+
+<button mat-button [matMenuTriggerFor]="belowMenu" fxFlex="33">Feminino</button>
+<mat-menu #belowMenu="matMenu">
+  <button mat-menu-item routerLink="/buscar" [queryParams]="{categoria: 4}">Camiseta</button>
+  <button mat-menu-item routerLink="/buscar" [queryParams]="{categoria: 5}">Calça</button>
+  <button mat-menu-item routerLink="/buscar" [queryParams]="{categoria: 6}">Bermuda</button>
+</mat-menu>
+
+<button mat-button [matMenuTriggerFor]="beforeMenu" fxFlex="33">Infantil</button>
+<mat-menu #beforeMenu="matMenu">
+  <button mat-menu-item routerLink="/buscar" [queryParams]="{categoria: 7}">Camiseta</button>
+  <button mat-menu-item routerLink="/buscar" [queryParams]="{categoria: 8}">Calça</button>
+  <button mat-menu-item routerLink="/buscar" [queryParams]="{categoria: 9}">Bermuda</button>
+</mat-menu>

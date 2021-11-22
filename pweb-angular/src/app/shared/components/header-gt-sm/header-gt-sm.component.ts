@@ -1,10 +1,11 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnChanges, OnInit, SimpleChange, SimpleChanges } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { CartItemResp } from '../../interfaces/cart-item-resp';
 import { CartService } from '../../services/cart.service';
 import { JwtTokenService } from '../../services/jwt-token.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-header-gt-sm',
@@ -13,15 +14,19 @@ import { JwtTokenService } from '../../services/jwt-token.service';
 })
 export class HeaderGtSmComponent implements OnInit {
   @Input() cart: CartItemResp
+  count: any;
   isLoggedIn: boolean;
   queryField: FormControl;
-  count: number = 0;
+  subscription: Subscription;
+  itens: Array<any> = []
 
   constructor(
     private snackBar: MatSnackBar,
     private jwtTokenService: JwtTokenService,
     private router: Router,
-    private cartService: CartService) {}
+    private cartService: CartService
+    ) {    }
+
 
   ngOnInit() {
     this.queryField = new FormControl(null,);
@@ -35,6 +40,17 @@ export class HeaderGtSmComponent implements OnInit {
       });
       this.router.navigateByUrl('');
     }
+
+    this.subscription = this.cartService.item$.subscribe((resp: any) => {
+
+      if(this.itens.includes(resp)){
+       let test = this.itens.filter(item => item !== resp)
+        this.count = test.length;
+        return;
+      };
+      this.itens.push(resp)
+      this.count = this.itens.length;
+    });
   }
 
   logOut() {
@@ -45,18 +61,5 @@ export class HeaderGtSmComponent implements OnInit {
     });
     this.router.navigateByUrl('');
   }
-
-  addToCart() {
-    this.count = this.count + 1;
-    return this.count;
- }
-
- clearCart() {
-    return this.count = 0;
- }
-
- getCart() {
-    return this.count;
- }
 
 }

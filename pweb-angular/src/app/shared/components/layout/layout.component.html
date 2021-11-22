@@ -11,23 +11,15 @@
             </mat-panel-title>
           </mat-expansion-panel-header>
         </mat-expansion-panel>
-        <mat-expansion-panel hideToggle #promocoesPanel (opened)="panelAsButtonClick('promocoes')">
-          <mat-expansion-panel-header>
-            <mat-panel-title>
-              Promoções
-            </mat-panel-title>
-          </mat-expansion-panel-header>
-        </mat-expansion-panel>
         <mat-expansion-panel>
           <mat-expansion-panel-header>
             <mat-panel-title>
               Feminino
             </mat-panel-title>
           </mat-expansion-panel-header>
-          <a fxFill href="#" mat-button>Calças</a>
-          <a fxFill href="#" mat-button>Camisetas</a>
-          <a fxFill href="#" mat-button>Blusas</a>
-          <a fxFill href="#" mat-button>Bermudas</a>
+          <a fxFill routerLink="/buscar" [queryParams]="{categoria: 5}" mat-button>Calças</a>
+          <a fxFill routerLink="/buscar" [queryParams]="{categoria: 4}" mat-button>Camisetas</a>
+          <a fxFill routerLink="/buscar" [queryParams]="{categoria: 6}" mat-button>Bermudas</a>
         </mat-expansion-panel>
         <mat-expansion-panel>
           <mat-expansion-panel-header>
@@ -35,10 +27,9 @@
               Masculino
             </mat-panel-title>
           </mat-expansion-panel-header>
-          <a fxFill href="#" mat-button>Calças</a>
-          <a fxFill href="#" mat-button>Camisetas</a>
-          <a fxFill href="#" mat-button>Blusas</a>
-          <a fxFill href="#" mat-button>Bermudas</a>
+          <a fxFill routerLink="/buscar" [queryParams]="{categoria: 2}" mat-button>Calças</a>
+          <a fxFill routerLink="/buscar" [queryParams]="{categoria: 1}" mat-button>Camisetas</a>
+          <a fxFill routerLink="/buscar" [queryParams]="{categoria: 3}" mat-button>Bermudas</a>
         </mat-expansion-panel>
         <mat-expansion-panel>
           <mat-expansion-panel-header>
@@ -46,10 +37,9 @@
               Infantil
             </mat-panel-title>
           </mat-expansion-panel-header>
-          <a fxFill href="#" mat-button>Calças</a>
-          <a fxFill href="#" mat-button>Camisetas</a>
-          <a fxFill href="#" mat-button>Blusas</a>
-          <a fxFill href="#" mat-button>Bermudas</a>
+          <a fxFill routerLink="/buscar" [queryParams]="{categoria: 8}" mat-button>Calças</a>
+          <a fxFill routerLink="/buscar" [queryParams]="{categoria: 7}" mat-button>Camisetas</a>
+          <a fxFill routerLink="/buscar" [queryParams]="{categoria: 9}" mat-button>Bermudas</a>
         </mat-expansion-panel>
     </mat-sidenav>
     <mat-sidenav-content>

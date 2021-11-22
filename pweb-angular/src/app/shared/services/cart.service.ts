@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject, Observable, Subject } from 'rxjs';
 import { take } from 'rxjs/operators';
 import { environment } from '../../../environments/environment';
 import { AddToCartReq } from '../interfaces/add-to-cart-request';
@@ -13,12 +13,22 @@ import { JwtTokenService } from './jwt-token.service';
 })
 export class CartService {
   public productList = new BehaviorSubject<any>([]);
-
+  private qtedItem = new  Subject<any>();
 
   constructor(
     private http: HttpClient,
     private jwtService: JwtTokenService
     ) {}
+
+  item$ = this.qtedItem.asObservable();
+
+  addQtd(qtd: any){
+    this.qtedItem.next(qtd);
+  }
+
+  removeQtd(qtd:any){
+    this.qtedItem.next(qtd);
+  }
 
   getCartItems(): Observable<Object> {
     const userId = +this.jwtService.getTokenInformation().sub;
@@ -33,6 +43,7 @@ export class CartService {
     const reqBody: AddToCartReq = {
       productId: productId
     };
+    this.addQtd(productId);
 
     return this.http
       .post(environment.API + '/cart/' + userId, reqBody)
@@ -54,6 +65,7 @@ export class CartService {
   deleteProductFromCart(productId: number): Observable<Object> {
     const userId = +this.jwtService.getTokenInformation().sub;
 
+    this.removeQtd(productId);
     return this.http
       .delete(environment.API + '/cart/' + userId + '/' + productId)
       .pipe(take(1));

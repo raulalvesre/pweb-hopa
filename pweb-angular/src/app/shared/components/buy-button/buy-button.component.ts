@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ProductResponse } from '../../interfaces/product-response';
 import { CartService } from '../../services/cart.service';
+import { HeaderGtSmComponent } from '../header-gt-sm/header-gt-sm.component';
 
 
 @Component({
@@ -14,7 +15,7 @@ export class BuyButtonComponent implements OnInit {
   @Input() product: ProductResponse;
 
   constructor(
-    private cart: CartService,
+    private cartService: CartService,
     private snackBar: MatSnackBar
     ) { }
 
@@ -23,7 +24,7 @@ export class BuyButtonComponent implements OnInit {
   }
 
   addProductToCart(){
-    this.cart.addToCart(this.product.id).subscribe((resp: any) => {
+    this.cartService.addToCart(this.product.id).subscribe((resp: any) => {
       this.snackBar.open(`PRODUTO ADICIONADO AO CARRINHO`, 'OK');
     });
   }

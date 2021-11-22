@@ -27,8 +27,7 @@ export class CartPageComponent {
     private cartService: CartService,
     private formBuilder: FormBuilder,
     private snackBar: MatSnackBar
-  ) {
-  }
+  ) {  }
 
   ngOnInit(): void {
     this.isLoading = true;
