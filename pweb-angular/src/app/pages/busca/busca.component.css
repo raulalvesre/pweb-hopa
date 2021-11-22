@@ -1,3 +1,13 @@
 .md-display-2 {
   margin-top: 20px;
 }
+
+.emptyList {
+  color: grey;
+  height: 75vh;
+}
+
+#naruto {
+  max-height: 320px;
+  margin-bottom: 20px;
+}
