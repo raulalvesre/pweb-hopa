@@ -3,6 +3,10 @@
   padding-bottom: 4vh;
 }
 
+.registration-progress {
+  height: 60vh;
+}
+
 .mat-display-3 {
   margin-bottom: 0px;
 }

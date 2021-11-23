@@ -1,4 +1,4 @@
-<div id="container" fxLayout="row wrap">
+<div id="container" fxLayout="row wrap" *ngIf="!isRegistering">
   <div
     id="title"
     fxFlex="100"
@@ -173,4 +173,7 @@
       <button mat-flat-button color="primary" (click)="onSubmit()">CONFIMAR</button>
     </div>
   </form>
+</div>
+<div *ngIf="isRegistering" class="registration-progress" fxLayout="column" fxLayoutAlign="center center">
+  <mat-progress-spinner mode="indeterminate"></mat-progress-spinner>
 </div>

@@ -7,6 +7,6 @@
 
 
 .btn-ctg{
-  border:1px solid #282828 ;
-  border-radius: 0 0 4px 4px;
+  border-bottom:1px solid #282828 ;
+  border-radius: 0px;
 }
