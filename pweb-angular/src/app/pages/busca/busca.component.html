@@ -1,14 +1,27 @@
-<div class="emptyList" *ngIf="products.length == 0" fxLayoutAlign="center center" fxLayout="row wrap" fxFlex="100">
-  <div fxFlex=100 fxLayoutAlign="center center">
-    <img src="../../../assets/naruto.png" id="naruto"/>
+<div
+  class="emptyList"
+  *ngIf="products.length == 0"
+  fxLayoutAlign="center center"
+  fxLayout="row wrap"
+  fxFlex="100"
+>
+  <div fxFlex="100" fxLayoutAlign="center center">
+    <img src="../../../assets/naruto.png" id="naruto" />
   </div>
   <h3>Nenhum produto encontrado</h3>
 </div>
 <div *ngIf="products.length > 0" fxLayout="row wrap">
-  <div class="cards" fxFlex="100" style="margin-top: 35px">
+  <div class="cards" fxFlex="100" style="margin-top: 35px;">
     <div fxLayout="row wrap" fxLayoutAlign="center center" fxFlex="100">
-      <div fxLayoutAlign="center center" fxFlex.xs="100" fxFlex.sm="50" fxFlex.gt-md="33"
-        *ngFor="let product of products">
+      <div
+        fxLayoutAlign="center center"
+        fxFlex.xs="100"
+        fxFlex.sm="50"
+        fxFlex.md="33"
+        fxFlex.lg="25"
+        fxFlex.xl="20"
+        *ngFor="let product of products"
+      >
         <app-generic-card [product]="product"></app-generic-card>
       </div>
     </div>

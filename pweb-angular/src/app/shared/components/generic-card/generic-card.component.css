@@ -5,8 +5,8 @@
 
 
 img{
-  min-width: 300px;
-  min-height: 300px;
+  min-width: 270px;
+  min-height: 270px;
   max-width: 10vw;
   max-height: 10vh;
 }
@@ -23,7 +23,9 @@ a:hover{
 }
 
 .buttons{
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  padding: 0px 16px 16px 16px;
+}
+
+mat-card-subtitle {
+  margin-bottom: 0px;
 }
