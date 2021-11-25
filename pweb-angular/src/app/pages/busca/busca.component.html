@@ -1,16 +1,7 @@
-<div
-  class="emptyList"
-  *ngIf="products.length == 0"
-  fxLayoutAlign="center center"
-  fxLayout="row wrap"
-  fxFlex="100"
->
-  <div fxFlex="100" fxLayoutAlign="center center">
-    <img src="../../../assets/naruto.png" id="naruto" />
-  </div>
-  <h3>Nenhum produto encontrado</h3>
+<div *ngIf="isLoading" class="loading-progress" fxLayout="column" fxLayoutAlign="center center">
+  <mat-progress-spinner mode="indeterminate"></mat-progress-spinner>
 </div>
-<div *ngIf="products.length > 0" fxLayout="row wrap">
+<div [fxShow]="products.length > 0" fxLayout="row wrap" style="width: 100%">
   <div class="cards" fxFlex="100" style="margin-top: 35px;">
     <div fxLayout="row wrap" fxLayoutAlign="center center" fxFlex="100">
       <div
@@ -26,4 +17,16 @@
       </div>
     </div>
   </div>
+</div>
+<div
+  class="emptyList"
+  [fxShow]="products != null && products.length == 0 && !isLoading"
+  fxLayoutAlign="center center"
+  fxLayout="row wrap"
+  fxFlex="100"
+>
+  <div fxFlex="100" fxLayoutAlign="center center">
+    <img src="../../../assets/naruto.png" id="naruto" />
+  </div>
+  <h3>Nenhum produto encontrado</h3>
 </div>

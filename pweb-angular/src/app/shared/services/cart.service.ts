@@ -11,6 +11,7 @@ import { JwtTokenService } from './jwt-token.service';
   providedIn: 'root',
 })
 export class CartService {
+  apiPath = environment.API + '/cart';
   qtedItems = new  Subject<void>();
 
   constructor(
@@ -19,57 +20,47 @@ export class CartService {
     ) {}
 
   getCartItems(): Observable<Object> {
-    const userId = +this.jwtService.getTokenInformation().sub;
-
     return this.http
-      .get(environment.API + '/cart/' + userId)
+      .get(this.apiPath)
       .pipe(take(1));
   }
 
   getQuantityOfItensInCart(): Observable<Object> {
-    const userId = +this.jwtService.getTokenInformation().sub;
-
     return this.http
-      .get(environment.API + '/cart/quantity/' + userId)
+      .get(this.apiPath + '/quantity')
       .pipe(take(1));
   }
 
   addToCart(productId: number): Observable<Object> {
-    const userId = +this.jwtService.getTokenInformation().sub;
     const reqBody: AddToCartReq = {
       productId: productId
     };
 
     return this.http
-      .post(environment.API + '/cart/' + userId, reqBody)
+      .post(this.apiPath, reqBody)
       .pipe(take(1));
   }
 
   updateProductQtd(productId: number, newQtd: number): Observable<Object> {
-    const userId = +this.jwtService.getTokenInformation().sub;
     const reqBody: UpdateQtdInCartReq = {
       productId: +productId,
       newQtd: +newQtd
     };
 
     return this.http
-      .put(environment.API + '/cart/' + userId, reqBody)
+      .put(this.apiPath, reqBody)
       .pipe(take(1));
   }
 
   deleteProductFromCart(productId: number): Observable<Object> {
-    const userId = +this.jwtService.getTokenInformation().sub;
-
     return this.http
-      .delete(environment.API + '/cart/' + userId + '/' + productId)
+      .delete(this.apiPath + '/' + productId)
       .pipe(take(1));
   }
 
   cleanCart(): Observable<Object> {
-    const userId = +this.jwtService.getTokenInformation().sub;
-
     return this.http
-      .delete(environment.API + '/cart/' + userId)
+      .delete(this.apiPath)
       .pipe(take(1));
   }
 }

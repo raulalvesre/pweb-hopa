@@ -86,10 +86,8 @@ export class RegistrationComponent extends BaseFormComponent implements OnInit {
     this.registerUser();
   }
 
-  private async registerUser() {
+  private registerUser() {
     this.isRegistering = true;
-
-    await new Promise(resolve => setTimeout(resolve, 4000));
 
     let newUserReq: NewUserRequest = {
       name: this.form.value['name'],

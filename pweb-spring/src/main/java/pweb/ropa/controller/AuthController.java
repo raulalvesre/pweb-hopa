@@ -2,10 +2,7 @@ package pweb.ropa.controller;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import pweb.ropa.dto.auth.ChangePasswordRequest;
 import pweb.ropa.dto.auth.LoginRequest;
 import pweb.ropa.dto.auth.LoginResponse;
@@ -19,6 +16,7 @@ import javax.validation.Valid;
 
 @RequiredArgsConstructor
 @RestController
+@RequestMapping("/auth")
 public class AuthController {
 
     private final AuthService authService;

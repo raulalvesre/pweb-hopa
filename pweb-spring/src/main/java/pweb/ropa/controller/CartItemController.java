@@ -2,10 +2,12 @@ package pweb.ropa.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 import pweb.ropa.dto.cart.AddToCartRequest;
 import pweb.ropa.dto.cart.CartItemResponse;
 import pweb.ropa.dto.cart.UpdateQtdInCartRequest;
+import pweb.ropa.security.MyUserDetails;
 import pweb.ropa.service.CartItemService;
 
 import java.util.List;
@@ -17,40 +19,46 @@ public class CartItemController {
     @Autowired
     private CartItemService cartItemService;
 
-    @GetMapping("/{userId}")
-    public ResponseEntity<List<CartItemResponse>> getUserCartItems(@PathVariable Long userId) {
-        var response = cartItemService.getUserCartItems(userId);
+    @GetMapping
+    public ResponseEntity<List<CartItemResponse>> getUserCartItems(Authentication authentication) {
+        var currentUserId = ((MyUserDetails) authentication.getPrincipal()).getId();
+        var response = cartItemService.getUserCartItems(currentUserId);
         return ResponseEntity.ok(response);
     }
 
-    @GetMapping("quantity/{userId}")
-    public ResponseEntity<Integer> getQuantiyOfItemsInCart(@PathVariable Long userId) {
-        var response = cartItemService.getQuantityOfItemsInCart(userId);
+    @GetMapping("/quantity")
+    public ResponseEntity<Integer> getQuantiyOfItemsInCart(Authentication authentication) {
+        var currentUserId = ((MyUserDetails) authentication.getPrincipal()).getId();
+        var response = cartItemService.getQuantityOfItemsInCart(currentUserId);
         return ResponseEntity.ok(response);
     }
 
-    @PostMapping("/{userId}")
-    public ResponseEntity<Void> addToCart(@PathVariable Long userId, @RequestBody AddToCartRequest req) {
-        cartItemService.addToCart(userId, req.getProductId());
+    @PostMapping
+    public ResponseEntity<Void> addToCart(@RequestBody AddToCartRequest req, Authentication authentication) {
+        var currentUserId = ((MyUserDetails) authentication.getPrincipal()).getId();
+        cartItemService.addToCart(currentUserId, req.getProductId());
         return ResponseEntity.noContent().build();
     }
 
-    @PutMapping("/{userId}")
-    public ResponseEntity<Void> updateProductQtd(@PathVariable Long userId, @RequestBody UpdateQtdInCartRequest req) {
-        cartItemService.updateQtd(userId, req.getProductId(), req.getNewQtd());
+    @PutMapping
+    public ResponseEntity<Void> updateProductQtd(@RequestBody UpdateQtdInCartRequest req, Authentication authentication) {
+        var currentUserId = ((MyUserDetails) authentication.getPrincipal()).getId();
+        cartItemService.updateQtd(currentUserId, req.getProductId(), req.getNewQtd());
         return ResponseEntity.noContent().build();
 
     }
 
-    @DeleteMapping("/{userId}/{productId}")
-    public ResponseEntity<Void> deleteProductFromCart(@PathVariable Long userId, @PathVariable Long productId) {
-        cartItemService.deleteFromCart(userId, productId);
+    @DeleteMapping("/{productId}")
+    public ResponseEntity<Void> deleteProductFromCart(@PathVariable Long productId, Authentication authentication) {
+        var currentUserId = ((MyUserDetails) authentication.getPrincipal()).getId();
+        cartItemService.deleteFromCart(currentUserId, productId);
         return ResponseEntity.noContent().build();
     }
 
-    @DeleteMapping("/{userId}")
-    public ResponseEntity<Void> cleanCart(@PathVariable Long userId) {
-        cartItemService.cleanCart(userId);
+    @DeleteMapping
+    public ResponseEntity<Void> cleanCart(Authentication authentication) {
+        var currentUserId = ((MyUserDetails) authentication.getPrincipal()).getId();
+        cartItemService.cleanCart(currentUserId);
         return ResponseEntity.noContent().build();
     }
 

@@ -10,21 +10,27 @@ import { SpringFilterQueryBuilder as filterBuilder } from 'spring-filter-query-b
   styleUrls: ['./busca.component.css']
 })
 export class BuscaComponent implements OnInit {
-  products: ProductResponse[];
   nameSearched: string;
+  isLoading: boolean;
+  products: ProductResponse[];
 
   constructor(
     private router: Router,
     private route: ActivatedRoute,
     private productService: ProductService
-  ) { }
+  ) {
+    this.isLoading = true;
+  }
 
   ngOnInit(): void {
+    this.isLoading = true;
+
     this.router.events
       .pipe(
         filter(x => x instanceof NavigationEnd),
         startWith(null),
         map((x: any) => {
+          this.isLoading = true;
           const name = this.route.snapshot.queryParamMap.get('name');
           const category = this.route.snapshot.queryParamMap.get('categoria');
           let searchQ;
@@ -40,7 +46,10 @@ export class BuscaComponent implements OnInit {
         }),
         switchMap(currentQuery => this.productService.getProducts(currentQuery)),
       ).subscribe(
-        (resp: any) => this.products = resp,
+        (resp: any) => {
+          this.isLoading = false;
+          this.products = resp
+        },
         (error) => console.log("deu ruim na hora de pegar os produtos")
       );
   }

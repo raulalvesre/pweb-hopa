@@ -38,8 +38,7 @@ const components = [
     MaterialModule,
     ReactiveFormsModule,
     FlexLayoutModule,
-    ReactiveFormsModule,
-    AppRoutingModule
+    ReactiveFormsModule
   ],
   declarations: components,
   exports: components

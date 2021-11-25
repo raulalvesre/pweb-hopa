@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot, UrlTree } from '@angular/router';
 import { Observable } from 'rxjs';
-import { AuthService } from '../shared/services/auth.service';
 import { JwtTokenService } from '../shared/services/jwt-token.service';
 
 @Injectable({
@@ -10,8 +9,7 @@ import { JwtTokenService } from '../shared/services/jwt-token.service';
 })
 export class AuthGuard implements CanActivate {
 
-  constructor(private authService: AuthService,
-    private matSnackBar: MatSnackBar,
+  constructor(
     private jwtService: JwtTokenService,
     private router: Router) {
     const jwtToken = window.localStorage.getItem('jwt-token');
@@ -35,7 +33,6 @@ export class AuthGuard implements CanActivate {
         return true;
 
       this.router.navigateByUrl('/login');
-      this.matSnackBar.open('Você não tem autorização para acessar essa página', 'OK', { duration: 4000 });
       return false;
   }
 

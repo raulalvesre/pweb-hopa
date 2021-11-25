@@ -1,5 +1,7 @@
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AuthGuard } from './guards/auth.guard';
 import { BuscaComponent } from './pages/busca/busca.component';
 import { CartPageComponent } from './pages/cart-page/cart-page.component';
 import { LoginComponent } from './pages/login/login.component';
@@ -8,6 +10,7 @@ import { RecoverPasswordComponent } from './pages/recover-password/recover-passw
 import { RegistrationComponent } from './pages/registration/registration.component';
 import { VitrinePageComponent } from './pages/vitrine-page/vitrine-page.component';
 import { LayoutComponent } from './shared/components/layout/layout.component';
+import { Interceptor } from './shared/interceptor/interceptor';
 
 const routes: Routes = [
   {
@@ -15,7 +18,6 @@ const routes: Routes = [
     component: LayoutComponent,
     pathMatch: 'full',
     children: [{ path: '', component: VitrinePageComponent }],
-    //canActivate: [AuthGuard],
   },
   {
     path: 'buscar',
@@ -28,40 +30,42 @@ const routes: Routes = [
     component: LayoutComponent,
     pathMatch: 'full',
     children: [{ path: '', component: LoginComponent }],
-    //canActivate: [AuthGuard],
   },
   {
     path: 'cadastro',
     component: LayoutComponent,
     pathMatch: 'full',
     children: [{ path: '', component: RegistrationComponent }],
-    //canActivate: [AuthGuard],
   },
   {
     path: 'detalhe/:id',
     component: LayoutComponent,
     pathMatch: 'full',
     children: [{ path: '', component: ProdutoDetalhePageComponent }],
-    //canActivate: [AuthGuard],
   },
   {
     path: 'carrinho',
     component: LayoutComponent,
     pathMatch: 'full',
     children: [{ path: '', component: CartPageComponent }],
-    //canActivate: [AuthGuard],
+    canActivate: [AuthGuard],
+    data: {
+      allowedRoles: ['user'],
+    },
   },
   {
     path: 'recuperar-senha',
     component: LayoutComponent,
     pathMatch: 'full',
     children: [{ path: '', component: RecoverPasswordComponent }],
-    //canActivate: [AuthGuard],
   }
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: Interceptor, multi: true }
+  ]
 })
 export class AppRoutingModule { }

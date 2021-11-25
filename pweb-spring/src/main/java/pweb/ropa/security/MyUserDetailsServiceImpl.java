@@ -1,12 +1,15 @@
 package pweb.ropa.security;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import pweb.ropa.model.User;
 import pweb.ropa.repository.UserRepository;
+
+import java.util.List;
 
 
 @Service
@@ -20,15 +23,15 @@ public class MyUserDetailsServiceImpl implements UserDetailsService {
         User user =  userRepository.findByEmail(email)
                 .orElseThrow(() -> new UsernameNotFoundException("User not found"));
 
-        return org.springframework.security.core.userdetails.User//
-                .withUsername(email)//
-                .password(user.getPassword())//
-                .roles("USER")
-                .accountExpired(false)//
-                .accountLocked(false)//
-                .credentialsExpired(false)//
-                .disabled(false)//
-                .build();
+        return new MyUserDetails(
+                user.getId(),
+                user.getEmail(),
+                user.getPassword(),
+                true,
+                true,
+                true,
+                true,
+                List.of(new SimpleGrantedAuthority("ROLE_USER")));
     }
 
 }

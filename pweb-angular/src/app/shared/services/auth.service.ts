@@ -12,29 +12,31 @@ import { SendRecoveryPasswordEmailRequest } from '../interfaces/send-password-re
   providedIn: 'root',
 })
 export class AuthService {
+  apiPath = environment.API + '/auth';
+
   constructor(private http: HttpClient) {}
 
   getToken(userLoginReq: LoginRequest): Observable<Object> {
     return this.http
-      .post(environment.API + '/login', userLoginReq)
+      .post(this.apiPath + '/login', userLoginReq)
       .pipe(take(1));
   }
 
   registerUser(newUserReq: NewUserRequest): Observable<Object> {
     return this.http
-      .post(environment.API + '/register', newUserReq)
+      .post(this.apiPath + '/register', newUserReq)
       .pipe(take(1));
   }
 
   requestChangePasswordEmail(sendRecoveryPasswordEmailReq: SendRecoveryPasswordEmailRequest): Observable<Object> {
     return this.http
-      .post(environment.API + '/receive-password-recovery-email', sendRecoveryPasswordEmailReq)
+      .post(this.apiPath + '/receive-password-recovery-email', sendRecoveryPasswordEmailReq)
       .pipe(take(1));
   }
 
   changePassword(changePasswordReq: ChangePasswordRequest): Observable<Object> {
     return this.http
-      .put(environment.API + '/change-password', changePasswordReq)
+      .put(this.apiPath + '/change-password', changePasswordReq)
       .pipe(take(1));
   }
 
